@@ -829,6 +829,91 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
 .empty-dashboard h2{font-size:1.3rem;font-weight:800;color:var(--text-primary);max-width:520px;line-height:1.4;margin-bottom:12px}
 .empty-dashboard p{font-size:.92rem;color:var(--text-secondary);max-width:460px;margin-bottom:20px;line-height:1.6}
 .empty-dashboard .btn{margin-top:8px}
+
+/* ============ DASHBOARD EXECUTIVO V2 ============ */
+.exec-compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.exec-compare-card{background:linear-gradient(160deg,rgba(140,82,255,.05),rgba(49,11,125,.02)),var(--bg-card);border:1px solid rgba(140,82,255,.14);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm);transition:var(--transition);position:relative;overflow:hidden}
+.exec-compare-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:rgba(140,82,255,.3)}
+.exec-compare-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.exec-compare-label i{color:var(--accent);font-size:.7rem}
+.exec-compare-value{font-size:1.65rem;font-weight:900;letter-spacing:-.6px;line-height:1.1;color:var(--text-primary);margin-bottom:4px}
+.exec-compare-delta{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-size:.72rem;font-weight:800;margin-top:6px}
+.exec-compare-delta.up{background:rgba(22,163,74,.12);color:var(--success)}
+.exec-compare-delta.down{background:rgba(220,38,38,.12);color:var(--danger)}
+.exec-compare-delta.neutral{background:var(--border-light);color:var(--text-secondary)}
+.exec-compare-delta.na{background:var(--border-light);color:var(--text-muted);font-weight:600}
+.exec-compare-note{font-size:.72rem;color:var(--text-muted);margin-top:8px;line-height:1.45}
+.vulp-index-wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+@media(max-width:780px){.vulp-index-wrap{grid-template-columns:1fr;gap:18px}}
+.vulp-gauge{position:relative;width:220px;height:220px;margin:0 auto}
+.vulp-gauge svg{transform:rotate(-90deg);width:100%;height:100%}
+.vulp-gauge .vg-track{fill:none;stroke:var(--border-light);stroke-width:12}
+.vulp-gauge .vg-arc{fill:none;stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.16,1,.3,1);filter:drop-shadow(0 0 10px rgba(140,82,255,.45))}
+.vulp-gauge-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:36px}
+.vulp-gauge-value{font-size:2.6rem;font-weight:900;letter-spacing:-1.8px;background:linear-gradient(135deg,var(--accent),var(--lime));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.vulp-gauge-label{font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.9px;color:var(--text-muted);margin-top:6px}
+.vulp-gauge-suffix{font-size:.7rem;color:var(--text-muted);margin-top:3px;font-weight:600}
+.vulp-dims{display:flex;flex-direction:column;gap:14px}
+.vulp-dim{display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center}
+.vulp-dim-name{font-size:.82rem;font-weight:700;color:var(--text-primary);display:flex;align-items:center;gap:8px}
+.vulp-dim-name i{color:var(--accent);width:16px;text-align:center;font-size:.78rem}
+.vulp-dim-val{font-size:.88rem;font-weight:800;color:var(--text-primary)}
+.vulp-dim-bar{grid-column:1/-1;height:6px;background:var(--border-light);border-radius:999px;overflow:hidden}
+.vulp-dim-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--violet));transition:width 1s var(--ultra-ease-out)}
+.vulp-dim.na .vulp-dim-bar span{background:var(--border-medium)}
+.vulp-dim.na .vulp-dim-val{color:var(--text-muted);font-size:.76rem;font-weight:600}
+.vulp-dim-desc{grid-column:1/-1;font-size:.72rem;color:var(--text-muted);line-height:1.4;margin-top:2px}
+.priority-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px;justify-content:flex-end}
+.priority-toolbar select{padding:7px 11px;background:var(--bg-body);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-size:.82rem;outline:none;font-family:inherit;cursor:pointer}
+.priority-toolbar select:focus{border-color:var(--accent);box-shadow:var(--shadow-focus)}
+.priority-table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--border-light)}
+.priority-table{width:100%;border-collapse:collapse;font-size:.82rem;background:var(--bg-card);min-width:760px}
+.priority-table th{text-align:left;padding:10px 14px;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);background:var(--bg-body);border-bottom:1px solid var(--border-light);white-space:nowrap}
+.priority-table td{padding:10px 14px;border-bottom:1px solid var(--border-light);vertical-align:middle}
+.priority-table tbody tr:last-child td{border-bottom:none}
+.priority-table tbody tr:hover{background:var(--accent-lighter)}
+.priority-disc{font-weight:700;color:var(--text-primary)}
+.priority-ass{font-size:.74rem;color:var(--text-muted);display:block;margin-top:1px}
+.priority-class{display:inline-flex;padding:3px 9px;border-radius:999px;font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.3px;white-space:nowrap}
+.priority-class.critico{background:rgba(220,38,38,.12);color:var(--danger)}
+.priority-class.atencao{background:rgba(217,119,6,.14);color:var(--warning)}
+.priority-class.desenvolvimento{background:rgba(99,84,201,.14);color:var(--info)}
+.priority-class.bom{background:rgba(22,163,74,.12);color:var(--success)}
+.priority-class.consolidado{background:rgba(230,252,98,.28);color:#5e6a00}
+.priority-class.amostra{background:var(--border-light);color:var(--text-muted)}
+.priority-flag{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:999px;text-transform:capitalize}
+.priority-flag.alta{background:rgba(220,38,38,.1);color:var(--danger)}
+.priority-flag.media{background:rgba(217,119,6,.1);color:var(--warning)}
+.priority-flag.baixa{background:rgba(22,163,74,.1);color:var(--success)}
+.priority-flag.revisao{background:rgba(99,84,201,.1);color:var(--info)}
+.priority-flag.iniciar{background:rgba(140,82,255,.1);color:var(--accent)}
+.priority-action{padding:5px 11px;background:var(--accent);color:#fff;border:none;border-radius:6px;font-size:.7rem;font-weight:700;cursor:pointer;font-family:inherit;transition:var(--transition);white-space:nowrap}
+.priority-action:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.priority-empty{padding:34px 20px;text-align:center;color:var(--text-muted);font-size:.85rem}
+.action-plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.action-card{background:linear-gradient(160deg,rgba(140,82,255,.05),rgba(49,11,125,.02)),var(--bg-card);border:1px solid rgba(140,82,255,.16);border-radius:14px;padding:18px 20px;position:relative;overflow:hidden;transition:var(--transition)}
+.action-card:hover{border-color:rgba(140,82,255,.35);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.action-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+.action-card.alta::before{background:var(--danger)}
+.action-card.media::before{background:var(--warning)}
+.action-card.baixa::before{background:var(--success)}
+.action-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+.action-head strong{font-size:.92rem;font-weight:800;color:var(--text-primary);line-height:1.3}
+.action-badge{font-size:.6rem;font-weight:900;padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.3px;background:var(--accent-light);color:var(--accent);white-space:nowrap;flex-shrink:0}
+.action-card.alta .action-badge{background:rgba(220,38,38,.12);color:var(--danger)}
+.action-card.media .action-badge{background:rgba(217,119,6,.12);color:var(--warning)}
+.action-card.baixa .action-badge{background:rgba(22,163,74,.12);color:var(--success)}
+.action-body{font-size:.82rem;color:var(--text-secondary);line-height:1.55;margin-bottom:10px}
+.action-body strong{color:var(--text-primary);font-weight:700}
+.action-meta{font-size:.74rem;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.action-meta span{display:inline-flex;align-items:center;gap:4px}
+.action-btns{display:flex;gap:6px;flex-wrap:wrap}
+.action-btns button{padding:6px 12px;border-radius:7px;border:1px solid var(--border-medium);background:var(--bg-body);color:var(--text-secondary);font-size:.74rem;font-weight:700;cursor:pointer;font-family:inherit;transition:var(--transition);display:inline-flex;align-items:center;gap:5px}
+.action-btns button:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-lighter)}
+#execCompareGrid{min-height:110px}
+#vulpIndexContainer{min-height:200px}
+#priorityContainer{min-height:120px}
+#actionPlanContainer{min-height:100px}
 </style>
 </head>
 <body>
@@ -897,7 +982,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
         <h2 class="welcome-title">Bem-vindo ao VULP+ Estudos!</h2>
         <p class="welcome-message">Seu ambiente de estudos está pronto! 🎯</p>
         <p class="welcome-sub">
-            <strong>Novo:</strong> O Cronograma agora é um sistema completo de ciclos de estudo — automático (com cálculo de prioridades) e manual (editor de sessões). Importe questões, registre horas e veja o progresso do ciclo automaticamente.
+            <strong>Novo:</strong> Dashboard inteligente com Índice de Preparação, Mapa de Prioridades, Evolução de Desempenho, Análise Contextual e Plano de Ação personalizado.
         </p>
         <button class="welcome-btn" id="welcomeBtn"><i class="fas fa-check"></i> Entendi, vamos estudar!</button>
     </div>
@@ -966,7 +1051,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
         </nav>
         <div class="sidebar-footer">
             <button class="btn-logout" id="btnLogout"><i class="fas fa-right-from-bracket"></i> Sair</button>
-            <div class="version-info">VULP+ Estudos v3.0 · Premium</div>
+            <div class="version-info">VULP+ Estudos v3.1 · Intelligence</div>
         </div>
     </aside>
 
@@ -996,7 +1081,37 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
                     <h1 id="dashGreeting">Olá, estudante 👋</h1>
                     <p id="dashSub">Veja seu progresso e continue firme na jornada.</p>
                 </div>
+                <div class="section-block" id="execVisaoSection">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-line"></i> Visão Executiva</h2>
+                        <span class="subtitle">Comparação com períodos anteriores</span>
+                    </div>
+                    <div class="exec-compare-grid" id="execCompareGrid"></div>
+                </div>
                 <div class="metrics-grid" id="metricsGrid"></div>
+                <div class="section-block" id="vulpIndexSection">
+                    <div class="section-header">
+                        <h2><i class="fas fa-trophy"></i> Índice de Preparação VULP+</h2>
+                        <span class="subtitle">Análise multidimensional da sua preparação</span>
+                    </div>
+                    <div id="vulpIndexContainer"></div>
+                </div>
+                <div class="section-block" id="prioridadesSection">
+                    <div class="section-header">
+                        <h2><i class="fas fa-list-check"></i> Mapa de Prioridades</h2>
+                        <span class="subtitle">Onde focar primeiro</span>
+                    </div>
+                    <div class="priority-toolbar">
+                        <select id="prioridadeFiltro">
+                            <option value="todas">Todas as prioridades</option>
+                            <option value="alta">Alta prioridade</option>
+                            <option value="critico">Críticos / Atenção</option>
+                            <option value="revisao">Revisão recomendada</option>
+                            <option value="sem-estudo">Não iniciados</option>
+                        </select>
+                    </div>
+                    <div id="priorityContainer"></div>
+                </div>
                 <div class="charts-filters">
                     <div class="charts-filters-title"><i class="fas fa-filter"></i> Filtros da análise</div>
                     <div class="charts-filters-grid" id="chartsFiltersGrid"></div>
@@ -1040,9 +1155,32 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
                     <div class="section-header"><h2><i class="fas fa-chart-simple"></i> Desempenho por disciplina</h2></div>
                     <div class="desempenho-list" id="desempenhoDisciplinas"></div>
                 </div>
+                <div class="section-block" id="evolucaoSection">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-column"></i> Evolução do Desempenho</h2>
+                        <span class="subtitle">Acompanhe seu progresso real</span>
+                    </div>
+                    <div class="charts-grid">
+                        <div class="chart-card full-width">
+                            <div class="chart-header"><h3><i class="fas fa-chart-line"></i> Percentual de acertos por semana</h3></div>
+                            <div class="chart-body tall"><canvas id="chartEvolucaoAcertos"></canvas></div>
+                        </div>
+                        <div class="chart-card full-width">
+                            <div class="chart-header"><h3><i class="fas fa-chart-bar"></i> Aproveitamento por disciplina</h3></div>
+                            <div class="chart-body"><canvas id="chartEvolucaoDisc"></canvas></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="section-block">
                     <div class="section-header"><h2><i class="fas fa-lightbulb"></i> Análise Inteligente</h2></div>
                     <div class="insights-grid" id="insightsContainer"></div>
+                </div>
+                <div class="section-block" id="actionPlanSection">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bullseye"></i> Seu Próximo Passo</h2>
+                        <span class="subtitle">Ações recomendadas com base nos seus dados</span>
+                    </div>
+                    <div id="actionPlanContainer"></div>
                 </div>
             </section>
 
@@ -1639,7 +1777,7 @@ const SUMARIO_MESTRE = [
 
 function getDefaultData(){
     return {
-        versao: 4,
+        versao: 5,
         usuario: { nome:'Estudante', concurso:'', dataProva:'' },
         senhaLocal: '',
         disciplinas: [],
@@ -1651,26 +1789,11 @@ function getDefaultData(){
         classificacoes: getDefaultClassificacoes(),
         metas: { diaria:60, semanal:420, mensal:1800 },
         cronogramaModelo: '3h',
-        planejamento: {
-            ciclos: [],
-            cicloAtivoId: null,
-            ciclosConcluidos: 0,
-            historico: [],
-            corDisciplinas: {},
-            ultimaConfig: null
-        },
+        planejamento: { ciclos:[], cicloAtivoId:null, ciclosConcluidos:0, historico:[], corDisciplinas:{}, ultimaConfig:null },
         qg: {
-            questoes: [],
-            respostas: {},
-            sessaoAtual: null,
-            sessoesAnteriores: [],
-            coins: 0,
-            currentStreak: 0,
-            bestStreak: 0,
-            jackpots: 0,
-            lastBonus5: false,
-            lastBonus10: false,
-            jackpotTriggered: false,
+            questoes: [], respostas: {}, sessaoAtual: null, sessoesAnteriores: [],
+            coins: 0, currentStreak: 0, bestStreak: 0, jackpots: 0,
+            lastBonus5: false, lastBonus10: false, jackpotTriggered: false,
             som: { habilitado: true, musica: false, volume: 0.7 }
         },
         migradoEm: new Date().toISOString()
@@ -2567,14 +2690,13 @@ const QG = {
 };
 
 /* ============================================================
-   CICLO DE ESTUDOS — MÓDULO NOVO
+   CICLO DE ESTUDOS — MÓDULO
    ============================================================ */
 const Ciclo = {
     wizard: { step:0, disciplinas:[], config:{}, sessoes:[] },
     manual: null,
     chartInstance: null,
     _manualChart: null,
-
     get plan(){ return state.data.planejamento; },
     ensure(){
         if(!state.data.planejamento){
@@ -2621,8 +2743,6 @@ const Ciclo = {
         if(state.qg.questoes.some(q => q.respostaUsuario != null)) return true;
         return false;
     },
-
-    /* ====== RENDER ====== */
     render(){
         this.ensure();
         const view = document.getElementById('cronCiclosView'); if(!view) return;
@@ -2799,8 +2919,6 @@ const Ciclo = {
             }
         });
     },
-
-    /* ====== WIZARD AUTOMÁTICO ====== */
     iniciarWizardAuto(){
         this.ensure();
         this.wizard = { step:1, disciplinas:[], config:{}, sessoes:[] };
@@ -3039,8 +3157,6 @@ const Ciclo = {
         toast('Ciclo criado!','success');
         this.render();
     },
-
-    /* ====== MANUAL ====== */
     iniciarManual(){
         this.ensure();
         this.manual = { cicloId:null, nome:'Meu ciclo manual', sessoes:[], editingId:null };
@@ -3201,8 +3317,6 @@ const Ciclo = {
         this.render();
     },
     cancelarManual(){ this.manual = null; this.render(); },
-
-    /* ====== AÇÕES ====== */
     setAtivo(id){ this.plan.cicloAtivoId = id; salvarDados(); this.render(); toast('Ciclo ativado!','success'); },
     duplicarCiclo(id){
         const orig = this.plan.ciclos.find(c => c.id === id);
@@ -3229,6 +3343,361 @@ const Ciclo = {
         salvarDados(); this.render(); toast('Progresso zerado.','info');
     }
 };
+
+/* ============================================================
+   VULP+ ANALYTICS — Motor de Análise e Preparação
+   ============================================================ */
+const VULPAnalytics = {
+    MIN_QUESTIONS_DOMAIN: 10,
+    MIN_QUESTIONS_INDEX: 20,
+
+    indexPreparacao(){
+        const dims = {
+            desempenho: this._dimDesempenho(),
+            cobertura: this._dimCobertura(),
+            regularidade: this._dimRegularidade(),
+            consolidacao: this._dimConsolidacao()
+        };
+        const weights = { desempenho:0.40, cobertura:0.25, regularidade:0.20, consolidacao:0.15 };
+        let somaPeso = 0, soma = 0;
+        for(const k in dims){
+            if(dims[k].value !== null){
+                soma += dims[k].value * weights[k];
+                somaPeso += weights[k];
+            }
+        }
+        return { geral: somaPeso > 0 ? soma / somaPeso : null, dims, weights };
+    },
+
+    _dimDesempenho(){
+        QG.ensure();
+        const qs = (state.qg.questoes || []).filter(q => q.respostaUsuario != null);
+        const n = qs.length;
+        const acertos = qs.filter(q => acertouQuestao(q)).length;
+        if(n < this.MIN_QUESTIONS_INDEX){
+            return { value: null, desc: n === 0 ? 'Nenhuma questão respondida ainda' : `Amostra pequena (${n}/${this.MIN_QUESTIONS_INDEX} questões)` };
+        }
+        const pct = (acertos / n) * 100;
+        let evolucao = 0;
+        const sessions = state.qg.sessoesAnteriores || [];
+        if(sessions.length >= 4){
+            const half = Math.floor(sessions.length / 2);
+            const rec = sessions.slice(0, half).reduce((s,x)=>s+x.pct, 0) / half;
+            const old = sessions.slice(half).reduce((s,x)=>s+x.pct, 0) / (sessions.length - half);
+            evolucao = rec - old;
+        }
+        const evolBonus = Math.max(-15, Math.min(15, evolucao * 1.5));
+        const value = Math.max(0, Math.min(100, pct * 0.85 + 15 + evolBonus));
+        return { value, desc: `${pct.toFixed(1)}% em ${n} questões${evolucao !== 0 ? ` · ${evolucao > 0 ? '+' : ''}${evolucao.toFixed(1)}% de evolução` : ''}` };
+    },
+
+    _dimCobertura(){
+        let total = 0, estudados = 0, comQuestoes = 0, dominados = 0;
+        (state.data.disciplinas || []).forEach(d => {
+            (d.assuntos || []).forEach(a => {
+                total++;
+                const q = (a.acertos || 0) + (a.erros || 0);
+                if(a.estudado || q > 0) estudados++;
+                if(q >= 5) comQuestoes++;
+                if(q >= this.MIN_QUESTIONS_DOMAIN && (a.acertos / q) * 100 >= 80) dominados++;
+            });
+        });
+        if(total === 0) return { value: null, desc:'Cadastre disciplinas e assuntos' };
+        const value = (estudados/total)*100*0.5 + (comQuestoes/total)*100*0.3 + (dominados/total)*100*0.2;
+        return { value, desc: `${estudados}/${total} estudados · ${comQuestoes} com questões · ${dominados} dominados` };
+    },
+
+    _dimRegularidade(){
+        const dias = Calc.diasEstudados();
+        if(dias === 0) return { value: null, desc:'Nenhum dia de estudo registrado' };
+        const streak = Calc.sequenciaAtual();
+        const streakPts = Math.min(30, (streak / 14) * 30);
+        const cutoff = Date.now() - 30 * 86400000;
+        const diasRecentes = new Set((state.data.sessoes || []).filter(s => new Date(s.data).getTime() >= cutoff).map(s => (s.data || '').slice(0,10))).size;
+        const diasPts = Math.min(40, (diasRecentes / 20) * 40);
+        const semanaSeg = Calc.semanaSegundos();
+        const metaSem = state.data.metas?.semanal || 420;
+        const metaPts = Math.min(30, (semanaSeg / 60 / metaSem) * 30);
+        const value = streakPts + diasPts + metaPts;
+        return { value, desc: `Streak ${streak}d · ${diasRecentes}d/últimos 30d · ${((semanaSeg/60/metaSem)*100).toFixed(0)}% meta semanal` };
+    },
+
+    _dimConsolidacao(){
+        let totalComQ = 0, comBom = 0;
+        (state.data.disciplinas || []).forEach(d => {
+            (d.assuntos || []).forEach(a => {
+                const q = (a.acertos || 0) + (a.erros || 0);
+                if(q >= this.MIN_QUESTIONS_DOMAIN){
+                    totalComQ++;
+                    if((a.acertos/q) * 100 >= 80) comBom++;
+                }
+            });
+        });
+        const revisoes = (state.data.sessoes || []).filter(s => s.tipo === 'revisao').length;
+        if(totalComQ === 0 && revisoes === 0) return { value: null, desc:'Sem dados de retenção ainda' };
+        const pctDom = totalComQ > 0 ? (comBom / totalComQ) * 100 : 0;
+        const revPts = Math.min(100, (revisoes / 10) * 100);
+        return { value: pctDom * 0.6 + revPts * 0.4, desc: `${comBom}/${totalComQ} dominados · ${revisoes} revisões` };
+    },
+
+    comparar(atualDias, anteriorDias){
+        const agora = Date.now();
+        const atualIni = agora - atualDias * 86400000;
+        const anteriorIni = atualIni - anteriorDias * 86400000;
+        const sessoes = state.data.sessoes || [];
+        const atual = sessoes.filter(s => new Date(s.data).getTime() >= atualIni);
+        const anterior = sessoes.filter(s => {
+            const t = new Date(s.data).getTime();
+            return t >= anteriorIni && t < atualIni;
+        });
+        const tA = atual.reduce((a,s)=>a+(s.duracaoSegundos||0), 0);
+        const tB = anterior.reduce((a,s)=>a+(s.duracaoSegundos||0), 0);
+        return { tempoAtual: tA, tempoAnterior: tB, tempoDiff: tA - tB, tempoPct: tB > 0 ? ((tA - tB) / tB) * 100 : null, sessoesAtual: atual.length, sessoesAnterior: anterior.length, temComparacao: anterior.length > 0 };
+    },
+
+    prioridades(filtro){
+        const hoje = Date.now();
+        const items = [];
+        (state.data.disciplinas || []).filter(d => d.ativo !== false).forEach(d => {
+            (d.assuntos || []).forEach(a => {
+                const q = (a.acertos || 0) + (a.erros || 0);
+                const pct = q > 0 ? (a.acertos / q) * 100 : null;
+                const ultimaAt = a.ultimaAtualizacao ? new Date(a.ultimaAtualizacao).getTime() : null;
+                const diasSemEstudo = ultimaAt ? Math.floor((hoje - ultimaAt) / 86400000) : null;
+
+                let classificacao, classKey, prioridade, prioKey, acaoSugerida;
+
+                if(q === 0){
+                    if(!a.estudado){ classificacao = 'Não iniciado'; classKey = 'amostra'; prioridade = 'iniciar'; prioKey = 'iniciar'; acaoSugerida = 'Iniciar teoria'; }
+                    else { classificacao = 'Sem questões'; classKey = 'amostra'; prioridade = 'média'; prioKey = 'media'; acaoSugerida = 'Resolver questões'; }
+                } else if(q < this.MIN_QUESTIONS_DOMAIN){
+                    classificacao = 'Amostra inicial'; classKey = 'amostra'; prioridade = 'média'; prioKey = 'media'; acaoSugerida = 'Ampliar amostra';
+                } else if(pct < 60){
+                    classificacao = 'Crítico'; classKey = 'critico'; prioridade = 'alta'; prioKey = 'alta'; acaoSugerida = 'Retomar teoria';
+                } else if(pct < 70){
+                    classificacao = 'Atenção'; classKey = 'atencao'; prioridade = 'alta'; prioKey = 'alta'; acaoSugerida = 'Praticar questões';
+                } else if(pct < 80){
+                    classificacao = 'Em desenvolvimento'; classKey = 'desenvolvimento'; prioridade = 'média'; prioKey = 'media'; acaoSugerida = 'Reforçar questões';
+                } else if(pct < 90){
+                    classificacao = 'Bom domínio'; classKey = 'bom'; prioridade = 'baixa'; prioKey = 'baixa'; acaoSugerida = 'Manter revisões';
+                } else {
+                    classificacao = 'Consolidado'; classKey = 'consolidado'; prioridade = 'baixa'; prioKey = 'baixa'; acaoSugerida = 'Revisão periódica';
+                }
+
+                if(q >= this.MIN_QUESTIONS_DOMAIN && pct >= 80 && diasSemEstudo !== null && diasSemEstudo > 30){
+                    prioridade = 'revisão'; prioKey = 'revisao'; acaoSugerida = 'Revisar agora';
+                }
+
+                items.push({
+                    disciplinaId: d.id, disciplinaNome: d.nome,
+                    assuntoId: a.id, assuntoNome: a.nome,
+                    acertos: a.acertos || 0, erros: a.erros || 0, total: q, pct,
+                    ultimaAtualizacao: a.ultimaAtualizacao, diasSemEstudo,
+                    estudado: !!a.estudado,
+                    classificacao, classKey, prioridade, prioKey, acaoSugerida,
+                    _score: this._calcScore(pct, q, diasSemEstudo, a.estudado)
+                });
+            });
+        });
+        if(filtro === 'alta') return items.filter(i => i.prioKey === 'alta').sort((a,b) => b._score - a._score);
+        if(filtro === 'revisao') return items.filter(i => i.prioKey === 'revisao').sort((a,b) => b._score - a._score);
+        if(filtro === 'critico') return items.filter(i => i.classKey === 'critico' || i.classKey === 'atencao').sort((a,b) => b._score - a._score);
+        if(filtro === 'sem-estudo') return items.filter(i => !i.estudado && i.total === 0).sort((a,b) => b._score - a._score);
+        return items.sort((a,b) => b._score - a._score);
+    },
+
+    _calcScore(pct, q, dias, estudado){
+        let score = 0;
+        if(q < this.MIN_QUESTIONS_DOMAIN){
+            score = estudado ? 30 : 45;
+        } else {
+            score = (100 - pct) * 1.5 + Math.min(30, q / 10);
+        }
+        if(dias !== null) score += Math.min(20, dias / 3);
+        return score;
+    },
+
+    evolucaoSemanal(limite){
+        const sessions = [...(state.qg?.sessoesAnteriores || [])].sort((a,b) => new Date(a.data) - new Date(b.data));
+        const byWeek = {};
+        sessions.forEach(s => {
+            const d = new Date(s.data);
+            const ws = new Date(d); ws.setDate(d.getDate() - d.getDay());
+            const k = ws.toISOString().slice(0,10);
+            if(!byWeek[k]) byWeek[k] = { acertos:0, erros:0, total:0 };
+            byWeek[k].acertos += s.acertos; byWeek[k].erros += s.erros; byWeek[k].total += s.respondidas;
+        });
+        return Object.keys(byWeek).sort().slice(-(limite || 8)).map(k => ({
+            semana: k,
+            pct: byWeek[k].total > 0 ? (byWeek[k].acertos / byWeek[k].total) * 100 : 0,
+            total: byWeek[k].total
+        }));
+    },
+
+    evolucaoDisciplinas(){
+        const arr = [];
+        (state.data.disciplinas || []).forEach(d => {
+            let ac = 0, er = 0;
+            (d.assuntos || []).forEach(a => { ac += a.acertos || 0; er += a.erros || 0; });
+            const total = ac + er;
+            if(total >= this.MIN_QUESTIONS_DOMAIN) arr.push({ id:d.id, nome:d.nome, acertos:ac, erros:er, total, pct:(ac/total)*100 });
+        });
+        return arr.sort((a,b) => b.total - a.total);
+    }
+};
+
+/* ============================================================
+   INSIGHT ENGINE — Análise Inteligente Evoluída
+   ============================================================ */
+const InsightEngine = {
+    gerar(){
+        const insights = [];
+        QG.ensure();
+        const totalTempo7 = Object.values(Calc.tempoPorDisciplina({dias:7})).reduce((a,b) => a+b, 0);
+
+        if(totalTempo7 > 0){
+            const entries = Object.entries(Calc.tempoPorDisciplina({dias:7})).sort((a,b) => b[1]-a[1]);
+            const topPct = (entries[0][1] / totalTempo7) * 100;
+            if(topPct > 45 && entries.length >= 3){
+                const d = state.data.disciplinas.find(x => x.id === entries[0][0]);
+                insights.push({ tipo:'warning', icone:'fa-balance-scale', titulo:'Desequilíbrio no tempo',
+                    texto:`Você concentrou <strong>${topPct.toFixed(0)}%</strong> do tempo em <strong>${d ? escapeHtml(d.nome) : 'uma disciplina'}</strong> nesta semana. Considere redistribuir para evitar lacunas.`,
+                    origem:'Tempo por disciplina (7 dias)' });
+            }
+        }
+
+        const crit = VULPAnalytics.prioridades('critico');
+        if(crit.length > 0){
+            const p = crit[0];
+            insights.push({ tipo:'danger', icone:'fa-exclamation-triangle', titulo:'Desempenho abaixo do esperado',
+                texto:`<strong>${escapeHtml(p.disciplinaNome)} — ${escapeHtml(p.assuntoNome)}</strong> está em <strong>${p.pct.toFixed(0)}%</strong> com ${p.total} questões. Retome teoria e pratique mais questões.`,
+                origem:`Questões em ${escapeHtml(p.disciplinaNome)}` });
+        }
+
+        const cmp = VULPAnalytics.comparar(7, 7);
+        if(cmp.temComparacao && cmp.tempoPct !== null && cmp.tempoPct > 20){
+            const s = (state.qg.sessoesAnteriores || []).sort((a,b) => new Date(b.data) - new Date(a.data));
+            if(s.length >= 4){
+                const rec = (s[0].pct + s[1].pct) / 2;
+                const old = (s[2].pct + s[3].pct) / 2;
+                if(rec - old < 5){
+                    insights.push({ tipo:'warning', icone:'fa-gauge-high', titulo:'Mais tempo, mesmo resultado',
+                        texto:`Seu tempo aumentou <strong>${cmp.tempoPct.toFixed(0)}%</strong>, mas o aproveitamento não evoluiu proporcionalmente. Foque em questões e revisões.`,
+                        origem:'Comparação de sessões recentes do QG' });
+                }
+            }
+        }
+
+        const rev = VULPAnalytics.prioridades('revisao');
+        if(rev.length > 0){
+            const p = rev[0];
+            insights.push({ tipo:'info', icone:'fa-rotate', titulo:'Revisão recomendada',
+                texto:`<strong>${escapeHtml(p.assuntoNome)}</strong> (${escapeHtml(p.disciplinaNome)}) está há <strong>${p.diasSemEstudo}</strong> dias sem contato. Considere revisar e testar retenção.`,
+                origem:'Assuntos com domínio e sem revisão recente' });
+        }
+
+        const ev = VULPAnalytics.evolucaoSemanal(4);
+        if(ev.length >= 3){
+            const rec = (ev[ev.length-1].pct + ev[ev.length-2].pct) / 2;
+            const old = (ev[0].pct + ev[1].pct) / 2;
+            if(rec - old > 5 && ev[0].total >= 5 && ev[1].total >= 5){
+                insights.push({ tipo:'success', icone:'fa-arrow-trend-up', titulo:'Evolução consistente',
+                    texto:`Seu aproveitamento passou de <strong>${old.toFixed(0)}%</strong> para <strong>${rec.toFixed(0)}%</strong> nas últimas semanas. Continue!`,
+                    origem:'Sessões semanais do QG' });
+            }
+        }
+
+        const semDados = (state.data.disciplinas || []).filter(d => {
+            const t = (d.assuntos || []).reduce((s,a) => s + (a.acertos||0) + (a.erros||0), 0);
+            return t > 0 && t < VULPAnalytics.MIN_QUESTIONS_INDEX;
+        });
+        if(semDados.length > 0){
+            insights.push({ tipo:'info', icone:'fa-info-circle', titulo:'Amostra limitada',
+                texto:`<strong>${semDados.length}</strong> disciplina(s) possuem menos de ${VULPAnalytics.MIN_QUESTIONS_INDEX} questões respondidas. Responda mais questões no QG para análise confiável.`,
+                origem:'Análise de cobertura de dados' });
+        }
+
+        const streak = Calc.sequenciaAtual();
+        if(streak >= 7){
+            insights.push({ tipo:'success', icone:'fa-fire', titulo:'Sequência impressionante',
+                texto:`Você está há <strong>${streak} dias</strong> consecutivos estudando. Continue!`,
+                origem:'Contagem de dias consecutivos' });
+        } else if(streak === 0 && Calc.totalSessoes() > 0){
+            insights.push({ tipo:'warning', icone:'fa-calendar-times', titulo:'Sem estudo hoje',
+                texto:'Nenhuma sessão registrada hoje. Uma sessão curta mantém o hábito!',
+                origem:'Registro diário de estudos' });
+        }
+
+        if(totalTempo7 > 0){
+            const entries = Object.entries(Calc.tempoPorDisciplina({dias:7})).sort((a,b) => b[1]-a[1]);
+            const d = state.data.disciplinas.find(x => x.id === entries[0][0]);
+            if(d && entries[0][1] > 1800){
+                insights.push({ tipo:'success', icone:'fa-trophy', titulo:'Destaque da semana',
+                    texto:`<strong>${escapeHtml(d.nome)}</strong> liderou com <strong>${formatarHorasMinLong(entries[0][1])}</strong> de dedicação.`,
+                    origem:'Tempo de estudo (7 dias)' });
+            }
+        }
+
+        return insights.slice(0, 6);
+    }
+};
+
+/* ============================================================
+   ACTION PLAN — Seu Próximo Passo
+   ============================================================ */
+const ActionPlan = {
+    gerar(){
+        const actions = [];
+        const prios = VULPAnalytics.prioridades();
+        const altas = prios.filter(p => p.prioKey === 'alta' || p.prioKey === 'iniciar').slice(0, 3);
+        altas.forEach(p => {
+            actions.push({
+                prioridade: p.prioKey === 'alta' ? 'alta' : 'media',
+                disciplina: p.disciplinaNome,
+                assunto: p.assuntoNome,
+                motivo: p.pct !== null ? `Aproveitamento de ${p.pct.toFixed(0)}% em ${p.total} questões` : (p.estudado ? 'Sem questões respondidas' : 'Assunto não iniciado'),
+                acao: p.acaoSugerida,
+                tempoEstimado: p.prioKey === 'alta' ? '30-45 min' : '20-30 min',
+                disciplinaId: p.disciplinaId, assuntoId: p.assuntoId,
+                tipo: p.prioKey === 'iniciar' ? 'teoria' : 'questoes'
+            });
+        });
+        const revs = prios.filter(p => p.prioKey === 'revisao').slice(0, 2);
+        revs.forEach(p => {
+            actions.push({
+                prioridade: 'baixa',
+                disciplina: p.disciplinaNome, assunto: p.assuntoNome,
+                motivo: `Sem contato há ${p.diasSemEstudo} dias`,
+                acao: 'Realizar revisão',
+                tempoEstimado: '15-20 min',
+                disciplinaId: p.disciplinaId, assuntoId: p.assuntoId,
+                tipo: 'revisao'
+            });
+        });
+        return actions.slice(0, 4);
+    },
+    irParaDisciplina(discId){
+        navigateTo('disciplinas');
+        if(discId){
+            state.disciplinasExpandidas.add(discId);
+            setTimeout(() => { if(typeof renderDisciplinas === 'function') renderDisciplinas(); }, 400);
+        }
+    },
+    iniciarCronometro(discId, assId, tipo){
+        navigateTo('cronometro');
+        setTimeout(() => {
+            const selD = document.getElementById('cronometroDisciplinaSelect');
+            if(selD){ selD.value = discId; if(typeof atualizarAssuntosCron === 'function') atualizarAssuntosCron(); }
+            setTimeout(() => {
+                const selA = document.getElementById('cronometroAssuntoSelect');
+                if(selA && assId) selA.value = assId;
+                const selT = document.getElementById('cronometroTipoSelect');
+                if(selT) selT.value = tipo || 'teoria';
+            }, 100);
+        }, 700);
+    }
+};
+window.ActionPlan = ActionPlan;
 
 /* ====== CHARTS DASHBOARD ====== */
 const Charts = {
@@ -3394,8 +3863,191 @@ const Charts = {
 };
 
 /* ============================================================
-   DASHBOARD RENDER
+   RENDERIZADORES DASHBOARD
    ============================================================ */
+function renderVisaoExecutiva(){
+    const c = document.getElementById('execCompareGrid'); if(!c) return;
+    const c7 = VULPAnalytics.comparar(7, 7);
+    const c30 = VULPAnalytics.comparar(30, 30);
+    QG.ensure();
+    const qs = state.qg.questoes || [];
+    const resp = qs.filter(q => q.respostaUsuario != null);
+    const acertos = resp.filter(q => acertouQuestao(q)).length;
+    const pctGeral = resp.length > 0 ? (acertos / resp.length) * 100 : null;
+    const progAss = Calc.progressoAssuntos();
+    const emAndamento = (state.data.disciplinas || []).filter(d => (d.assuntos || []).some(a => a.estudado || (a.acertos + a.erros) > 0)).length;
+    const semanaSeg = Calc.semanaSegundos();
+    const metaSem = state.data.metas?.semanal || 420;
+    const metaPct = Math.min(100, (semanaSeg / 60 / metaSem) * 100);
+
+    const cards = [
+        { label:'Tempo · 7 dias', icon:'fa-clock', value: formatarHorasMinLong(c7.tempoAtual), delta: c7.temComparacao ? c7.tempoPct : null, note: c7.temComparacao ? `vs ${formatarHorasMinLong(c7.tempoAnterior)} no período anterior` : 'Primeira semana com dados' },
+        { label:'Tempo · 30 dias', icon:'fa-calendar', value: formatarHorasMinLong(c30.tempoAtual), delta: c30.temComparacao ? c30.tempoPct : null, note: c30.temComparacao ? `vs ${formatarHorasMinLong(c30.tempoAnterior)} no período anterior` : 'Primeiro mês com dados' },
+        { label:'Questões respondidas', icon:'fa-check-circle', value: resp.length, delta: null, note: `${acertos} acertos · ${resp.length - acertos} erros` },
+        { label:'Aproveitamento geral', icon:'fa-percent', value: pctGeral !== null ? pctGeral.toFixed(1) + '%' : '—', delta: null, note: resp.length < 20 ? `Amostra pequena (${resp.length} questões)` : 'Base: questões respondidas no QG' },
+        { label:'Disciplinas em andamento', icon:'fa-book', value: emAndamento, delta: null, note: `de ${(state.data.disciplinas || []).length} cadastradas` },
+        { label:'Assuntos concluídos', icon:'fa-layer-group', value: progAss.estudados, delta: null, note: `${progAss.total - progAss.estudados} pendentes de ${progAss.total}` },
+        { label:'Sequência atual', icon:'fa-fire', value: Calc.sequenciaAtual() + 'd', delta: null, note: `Maior: ${Calc.maiorSequencia()}d · ${Calc.diasEstudados()} dias totais` },
+        { label:'Metas cumpridas', icon:'fa-bullseye', value: metaPct.toFixed(0) + '%', delta: null, note: `Meta semanal: ${metaSem}min` }
+    ];
+
+    c.innerHTML = cards.map(x => {
+        let delta = '';
+        if(x.delta !== null){
+            const cls = x.delta > 0 ? 'up' : x.delta < 0 ? 'down' : 'neutral';
+            const arrow = x.delta > 0 ? 'fa-arrow-up' : x.delta < 0 ? 'fa-arrow-down' : 'fa-minus';
+            const sign = x.delta > 0 ? '+' : '';
+            delta = `<span class="exec-compare-delta ${cls}"><i class="fas ${arrow}"></i>${sign}${x.delta.toFixed(0)}%</span>`;
+        } else {
+            delta = `<span class="exec-compare-delta na"><i class="fas fa-minus"></i>sem base</span>`;
+        }
+        return `<div class="exec-compare-card">
+            <div class="exec-compare-label"><i class="fas ${x.icon}"></i>${x.label}</div>
+            <div class="exec-compare-value">${x.value}</div>
+            ${delta}
+            <div class="exec-compare-note">${x.note}</div>
+        </div>`;
+    }).join('');
+}
+
+function renderVulpIndex(){
+    const c = document.getElementById('vulpIndexContainer'); if(!c) return;
+    const idx = VULPAnalytics.indexPreparacao();
+    const dims = [
+        { key:'desempenho', nome:'Desempenho', icon:'fa-chart-line', peso: idx.weights.desempenho },
+        { key:'cobertura', nome:'Cobertura', icon:'fa-book', peso: idx.weights.cobertura },
+        { key:'regularidade', nome:'Regularidade', icon:'fa-calendar-check', peso: idx.weights.regularidade },
+        { key:'consolidacao', nome:'Consolidação', icon:'fa-brain', peso: idx.weights.consolidacao }
+    ];
+    const geral = idx.geral;
+    const circ = 2 * Math.PI * 52;
+    const offset = geral !== null ? circ * (1 - geral / 100) : circ;
+    const interp = geral === null ? 'Sem dados' : geral >= 85 ? 'Excelente preparação' : geral >= 70 ? 'Boa preparação' : geral >= 55 ? 'Em desenvolvimento' : geral >= 40 ? 'Atenção necessária' : 'Fase inicial';
+
+    c.innerHTML = `<div class="vulp-index-wrap">
+        <div class="vulp-gauge">
+            <svg viewBox="0 0 120 120">
+                <circle class="vg-track" cx="60" cy="60" r="52"/>
+                <circle class="vg-arc" cx="60" cy="60" r="52" stroke-dasharray="${circ}" stroke-dashoffset="${offset}" stroke="url(#vulpArcGrad)"/>
+            </svg>
+            <div class="vulp-gauge-center">
+                <div class="vulp-gauge-value">${geral !== null ? geral.toFixed(0) : '—'}</div>
+                <div class="vulp-gauge-label">Índice de Preparação</div>
+                <div class="vulp-gauge-suffix">${interp}</div>
+            </div>
+        </div>
+        <div class="vulp-dims">
+            ${dims.map(d => {
+                const v = idx.dims[d.key];
+                const has = v.value !== null;
+                return `<div class="vulp-dim ${has ? '' : 'na'}">
+                    <div class="vulp-dim-name"><i class="fas ${d.icon}"></i>${d.nome} <span style="font-weight:400;color:var(--text-muted);font-size:.7rem;">(${(d.peso*100).toFixed(0)}%)</span></div>
+                    <div class="vulp-dim-val">${has ? v.value.toFixed(0) : '—'}</div>
+                    <div class="vulp-dim-bar"><span style="width:${has ? Math.min(100, v.value) : 0}%"></span></div>
+                    <div class="vulp-dim-desc">${v.desc}</div>
+                </div>`;
+            }).join('')}
+        </div>
+    </div>`;
+}
+
+function renderPrioridades(){
+    const c = document.getElementById('priorityContainer'); if(!c) return;
+    const sel = document.getElementById('prioridadeFiltro');
+    const f = sel ? sel.value : 'todas';
+    let items = VULPAnalytics.prioridades(f === 'todas' ? null : f);
+    if(f === 'todas') items = items.slice(0, 15);
+    if(items.length === 0){
+        c.innerHTML = `<div class="priority-empty"><i class="fas fa-check-circle" style="color:var(--success);font-size:1.8rem;margin-bottom:8px;display:block;"></i>Nenhum item para este filtro.</div>`;
+        return;
+    }
+    c.innerHTML = `<div class="priority-table-wrap"><table class="priority-table">
+        <thead><tr><th>Disciplina / Assunto</th><th>Questões</th><th>Aproveit.</th><th>Últ. estudo</th><th>Classificação</th><th>Prioridade</th><th>Ação</th></tr></thead>
+        <tbody>${items.map(p => {
+            const dias = p.diasSemEstudo;
+            const ultTxt = dias === null ? '—' : dias === 0 ? 'Hoje' : `${dias}d atrás`;
+            const tipoBtn = p.acaoSugerida.toLowerCase().includes('teoria') ? 'teoria' : 'questoes';
+            return `<tr>
+                <td><div class="priority-disc">${escapeHtml(p.disciplinaNome)}</div><span class="priority-ass">${escapeHtml(p.assuntoNome)}</span></td>
+                <td>${p.total}</td>
+                <td>${p.pct !== null ? p.pct.toFixed(1) + '%' : '—'}</td>
+                <td>${ultTxt}</td>
+                <td><span class="priority-class ${p.classKey}">${p.classificacao}</span></td>
+                <td><span class="priority-flag ${p.prioKey}"><i class="fas ${p.prioKey === 'alta' ? 'fa-exclamation' : p.prioKey === 'revisao' ? 'fa-rotate' : p.prioKey === 'iniciar' ? 'fa-play' : 'fa-circle'}"></i>${p.prioridade}</span></td>
+                <td><button class="priority-action" data-prio-disc="${p.disciplinaId}" data-prio-ass="${p.assuntoId}" data-prio-tipo="${tipoBtn}">${escapeHtml(p.acaoSugerida)}</button></td>
+            </tr>`;
+        }).join('')}</tbody>
+    </table></div>`;
+    c.querySelectorAll('.priority-action').forEach(b => {
+        b.onclick = () => ActionPlan.iniciarCronometro(b.dataset.prioDisc, b.dataset.prioAss, b.dataset.prioTipo);
+    });
+}
+
+function renderEvolucaoDesempenho(){
+    if(typeof Chart === 'undefined') return;
+    const ctx1 = document.getElementById('chartEvolucaoAcertos');
+    if(ctx1){
+        const data = VULPAnalytics.evolucaoSemanal(8);
+        if(window._vulpEvolChart) window._vulpEvolChart.destroy();
+        if(data.length === 0){
+            ctx1.parentElement.innerHTML = '<div class="chart-empty"><i class="fas fa-chart-line"></i><span>Sem dados de sessões do QG</span></div>';
+        } else {
+            const isDark = document.body.classList.contains('dark');
+            window._vulpEvolChart = new Chart(ctx1, {
+                type:'line',
+                data:{ labels: data.map(x => { const [y,m,d] = x.semana.split('-'); return `${d}/${m}`; }),
+                    datasets:[{ label:'% Acertos', data: data.map(x => +x.pct.toFixed(1)), borderColor:'#8c52ff', backgroundColor:'rgba(140,82,255,.12)', tension:.35, fill:true, pointRadius:4, pointBackgroundColor:'#8c52ff', pointBorderColor:'#fff', pointBorderWidth:2 }]},
+                options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: c => `${c.parsed.y.toFixed(1)}% em ${data[c.dataIndex].total} questões` } } }, scales:{ y:{ beginAtZero:true, max:100, grid:{color:isDark?'rgba(148,163,184,.1)':'rgba(148,163,184,.15)'}, ticks:{color:isDark?'#b0b8c4':'#5a6270', callback:v=>v+'%'} }, x:{ grid:{display:false}, ticks:{color:isDark?'#b0b8c4':'#5a6270'} } } }
+            });
+        }
+    }
+    const ctx2 = document.getElementById('chartEvolucaoDisc');
+    if(ctx2){
+        const data = VULPAnalytics.evolucaoDisciplinas();
+        if(window._vulpDiscChart) window._vulpDiscChart.destroy();
+        if(data.length === 0){
+            ctx2.parentElement.innerHTML = '<div class="chart-empty"><i class="fas fa-chart-bar"></i><span>Sem dados por disciplina</span></div>';
+        } else {
+            const isDark = document.body.classList.contains('dark');
+            window._vulpDiscChart = new Chart(ctx2, {
+                type:'bar',
+                data:{ labels: data.map(x => x.nome.length > 18 ? x.nome.slice(0,16)+'…' : x.nome),
+                    datasets:[{ label:'% Acertos', data: data.map(x => +x.pct.toFixed(1)), backgroundColor: data.map(x => x.pct >= 80 ? '#16a34a' : x.pct >= 60 ? '#8c52ff' : x.pct >= 40 ? '#d97706' : '#dc2626'), borderRadius:6 }]},
+                options:{ responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{ legend:{display:false} }, scales:{ x:{ beginAtZero:true, max:100, grid:{color:isDark?'rgba(148,163,184,.1)':'rgba(148,163,184,.15)'}, ticks:{color:isDark?'#b0b8c4':'#5a6270', callback:v=>v+'%'} }, y:{ grid:{display:false}, ticks:{color:isDark?'#b0b8c4':'#5a6270', font:{size:10}} } } }
+            });
+        }
+    }
+}
+
+function renderPlanoAcao(){
+    const c = document.getElementById('actionPlanContainer'); if(!c) return;
+    const actions = ActionPlan.gerar();
+    if(actions.length === 0){
+        c.innerHTML = `<div class="priority-empty"><i class="fas fa-check-circle" style="color:var(--success);font-size:1.8rem;margin-bottom:8px;display:block;"></i>Você está em dia! Continue registrando para receber recomendações.</div>`;
+        return;
+    }
+    c.innerHTML = `<div class="action-plan-grid">${actions.map(a => `
+        <div class="action-card ${a.prioridade}">
+            <div class="action-head">
+                <strong>${escapeHtml(a.disciplina)}</strong>
+                <span class="action-badge">${a.prioridade}</span>
+            </div>
+            <div class="action-body">
+                <strong>${escapeHtml(a.assunto)}</strong><br>
+                ${escapeHtml(a.motivo)}. <em>${escapeHtml(a.acao)}.</em>
+            </div>
+            <div class="action-meta">
+                <span><i class="fas fa-clock"></i> ${a.tempoEstimado}</span>
+                <span><i class="fas fa-tag"></i> ${a.tipo === 'teoria' ? 'Teoria' : a.tipo === 'revisao' ? 'Revisão' : 'Questões'}</span>
+            </div>
+            <div class="action-btns">
+                <button onclick="ActionPlan.iniciarCronometro('${a.disciplinaId}','${a.assuntoId}','${a.tipo}')"><i class="fas fa-play"></i> Iniciar</button>
+                <button onclick="ActionPlan.irParaDisciplina('${a.disciplinaId}')"><i class="fas fa-book-open"></i> Ver disciplina</button>
+            </div>
+        </div>
+    `).join('')}</div>`;
+}
+
 function renderDashboard(){
     if(!Ciclo.temMovimentacoes()){ renderDashboardEmpty(); atualizarHeader(); return; }
     const empty = document.getElementById('emptyDashboard'); if(empty) empty.style.display = 'none';
@@ -3407,7 +4059,15 @@ function renderDashboard(){
     document.getElementById('dashSub').textContent = state.data.usuario.concurso ? `Foco: ${state.data.usuario.concurso}` : 'Defina seu concurso alvo nas configurações.';
     Charts.renderFiltros(); Charts.renderAll();
     renderDesempenhoDisciplinasDash(); renderInsights(); atualizarHeader();
+    try {
+        renderVisaoExecutiva();
+        renderVulpIndex();
+        renderPrioridades();
+        renderEvolucaoDesempenho();
+        renderPlanoAcao();
+    } catch(e) { console.warn('V2 renderers:', e); }
 }
+
 function renderDashboardEmpty(){
     const hero = document.querySelector('#page-dashboard > .page-hero'); if(hero) hero.style.display = 'none';
     document.querySelectorAll('#page-dashboard > .metrics-grid, #page-dashboard > .charts-filters, #page-dashboard > .section-block').forEach(el => el.style.display = 'none');
@@ -3445,37 +4105,21 @@ function renderDesempenhoDisciplinasDash(){
 
 function renderInsights(){
     const c = document.getElementById('insightsContainer'); if(!c) return;
-    const insights = [];
-    const sessoes = state.data.sessoes || [];
-    if(sessoes.length === 0){ insights.push({tipo:'info', icone:'fa-info-circle', texto:'Nenhuma sessão registrada. Use o cronômetro para começar.'}); }
-    else{
-        const cmp = Calc.compararPeriodo(7,0,14,7);
-        if(cmp.pct !== null){
-            if(cmp.pct > 10) insights.push({tipo:'success', icone:'fa-arrow-trend-up', texto:`Você aumentou seu tempo em <strong>${cmp.pct.toFixed(1)}%</strong> nesta semana.`});
-            else if(cmp.pct < -10) insights.push({tipo:'warning', icone:'fa-arrow-trend-down', texto:`Seu tempo caiu <strong>${Math.abs(cmp.pct).toFixed(1)}%</strong> nesta semana.`});
-            else insights.push({tipo:'info', icone:'fa-equals', texto:'Seu tempo de estudo está estável.'});
-        }
-        const tpd = Calc.tempoPorDisciplina({dias:7});
-        const arr = Object.entries(tpd).filter(([,v])=>v>0).sort((a,b)=>b[1]-a[1]);
-        if(arr.length > 0){ const d = state.data.disciplinas.find(x=>x.id===arr[0][0]); if(d) insights.push({tipo:'success', icone:'fa-trophy', texto:`Disciplina mais estudada nesta semana: <strong>${escapeHtml(d.nome)}</strong> (${formatarHorasMinLong(arr[0][1])}).`}); }
-        const negligenciadas = (state.data.disciplinas||[]).filter(d => !Object.keys(tpd).includes(d.id)).length;
-        if(negligenciadas > 0) insights.push({tipo:'warning', icone:'fa-exclamation-triangle', texto:`<strong>${negligenciadas}</strong> disciplina(s) sem registro nos últimos 7 dias.`});
-        const prog = Calc.progressoAssuntos();
-        if(prog.total > 0 && prog.estudados < prog.total){ insights.push({tipo:'info', icone:'fa-book', texto:`<strong>${prog.total - prog.estudados}</strong> assunto(s) ainda não estudado(s).`}); }
-        const streak = Calc.sequenciaAtual();
-        if(streak >= 3) insights.push({tipo:'success', icone:'fa-fire', texto:`Sequência de <strong>${streak} dias</strong> consecutivos!`});
-        else if(streak === 0) insights.push({tipo:'danger', icone:'fa-calendar-times', texto:'Nenhum estudo hoje. Comece uma sessão!'});
-        QG.ensure();
-        if(state.qg.questoes.length > 0){
-            const resp = state.qg.questoes.filter(q=>q.respostaUsuario!=null).length;
-            const acertos = state.qg.questoes.filter(q => acertouQuestao(q)).length;
-            const pct = resp>0?(acertos/resp*100):0;
-            if(resp>0) insights.push({tipo:pct>=80?'success':'info', icone:'fa-flag', texto:`QG: <strong>${resp}</strong> respondidas, <strong>${pct.toFixed(0)}%</strong> de acerto.`});
-        }
-        const cicloAtivo = App.Ciclo.getCicloAtivo();
-        if(cicloAtivo){ const prog = App.Ciclo.calcProgresso(cicloAtivo); insights.push({tipo:'info', icone:'fa-sync-alt', texto:`Ciclo ativo: <strong>${escapeHtml(cicloAtivo.nome)}</strong> — ${prog.pct.toFixed(0)}% concluído.`}); }
+    const insights = InsightEngine.gerar();
+    if(insights.length === 0){
+        c.innerHTML = `<div class="insight-card info"><i class="fas fa-info-circle"></i><div class="insight-text">Registre sessões e questões para gerar análises.</div></div>`;
+        return;
     }
-    c.innerHTML = insights.map(i => `<div class="insight-card ${i.tipo}"><i class="fas ${i.icone}"></i><div class="insight-text">${i.texto}</div></div>`).join('');
+    c.innerHTML = insights.map(i => `
+        <div class="insight-card ${i.tipo}">
+            <i class="fas ${i.icone}"></i>
+            <div class="insight-text">
+                ${i.titulo ? `<div style="font-weight:800;font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:3px;">${i.titulo}</div>` : ''}
+                ${i.texto}
+                <div style="font-size:.66rem;color:var(--text-muted);margin-top:6px;font-style:italic;"><i class="fas fa-info-circle"></i> ${i.origem}</div>
+            </div>
+        </div>
+    `).join('');
 }
 
 /* ============ DISCIPLINAS ============ */
@@ -3665,7 +4309,7 @@ function excluirLancamento(discId, assId, histId){
     salvarDados(); renderAll(); toast('Lançamento excluído.','info'); fecharModal();
 }
 
-/* ============ CRONOGRAMA (AGENDA) ============ */
+/* ============ CRONOGRAMA ============ */
 const TIPOS_CG = [
     { id:'teoria', nome:'Teoria' }, { id:'questoes', nome:'Questões' }, { id:'revisao', nome:'Revisão' },
     { id:'legislacao', nome:'Legislação' }, { id:'simulado', nome:'Simulado' }, { id:'leitura', nome:'Leitura' }
@@ -4335,18 +4979,18 @@ function logout(){
 }
 
 const HELP_TUTORIAIS = {
-    dashboard: { titulo:'Dashboard', icone:'fa-chart-pie', tag:'iniciante', resumo:'Painel principal com seus indicadores.', oqueE:'Reúne tempo estudado, sequência, desempenho e gráficos. Mostra estado vazio enquanto não há movimentações.', paraQueServe:'Identificar rapidamente seu ritmo.', passos:['Acesse pelo menu lateral.','Use os filtros para ajustar período/disciplina.','Leia a Análise Inteligente no final.'], exemplo:'João vê que estudou 8h na semana.', dicas:['Mantenha a sequência de dias.'], erros:['Confundir horas do cronograma com horas reais.'], resultado:'Você saberá onde focar.' },
-    disciplinas: { titulo:'Disciplinas', icone:'fa-book-open', tag:'iniciante', resumo:'Cadastre matérias e assuntos. Elas recebem automaticamente acertos e erros do QG quando vinculadas.', oqueE:'Organize disciplinas e assuntos do edital.', paraQueServe:'Acompanhar progresso por tópico.', passos:['Clique em Nova Disciplina.','Expanda e adicione assuntos.','Registre questões manualmente ou responda no QG.'], exemplo:'Maria cadastra Português e importa questões vinculadas.', dicas:['Use a ordem do edital.'], erros:['Criar nomes duplicados.'], resultado:'Lista organizada.' },
-    cronograma: { titulo:'Cronograma', icone:'fa-calendar-plus', tag:'iniciante', resumo:'Sistema de ciclos de estudo (automático e manual) + agenda semanal.', oqueE:'Duas abas: Ciclos de Estudo e Agenda Semanal.', paraQueServe:'Planejar a rotina e acompanhar ciclos por carga horária.', passos:['Aba Ciclos: escolha automático (wizard de 4 etapas) ou manual (editor).','Configure disciplinas, importância e disponibilidade.','Gere e salve o ciclo.','Acompanhe o progresso na barra e contador de voltas.','Use a aba Agenda para atividades pontuais na semana.'], exemplo:'João cria ciclo de 25h com 5 disciplinas, estuda e o sistema incrementa a barra automaticamente.', dicas:['Use o automático para começar rápido e edite depois.'], erros:['Confundir horas planejadas com efetivamente estudadas.'], resultado:'Rotina clara e mensurável.' },
-    cronometro: { titulo:'Cronômetro', icone:'fa-stopwatch', tag:'iniciante', resumo:'Registre o tempo real. Agora integrado aos ciclos.', oqueE:'Timer que grava sessões e soma ao ciclo ativo.', paraQueServe:'Medir tempo efetivo.', passos:['Selecione disciplina, assunto e (opcional) sessão do ciclo.','Clique em Iniciar.','Finalize para registrar.'], exemplo:'Ana estuda 50min de Atos Administrativos e o ciclo avança.', dicas:['Finalize sempre.'], erros:['Esquecer de finalizar.'], resultado:'Dados reais no Dashboard e no ciclo.' },
-    qg: { titulo:'QG das Questões', icone:'fa-flag', tag:'iniciante', resumo:'Treine questões CESPE com gamificação e integração.', oqueE:'Módulo com Modo Slide, termômetro, moedas e streaks.', paraQueServe:'Treinar com feedback e recompensas.', passos:['Antes de importar, escolha Disciplina e Assunto (opcional).','Cole questões ou envie PDF.','Responda.','Veja moedas, streak e jackpot.'], exemplo:'Carlos importa 10 questões de Licitações e acerta 7 — o assunto é atualizado.', dicas:['Use o Gerador de Prompt com seleção de assuntos.'], erros:['Colar questões fora do padrão CESPE.'], resultado:'Treino gamificado com atualização automática.' },
-    relatorios: { titulo:'Relatórios', icone:'fa-file-lines', tag:'iniciante', resumo:'Resumos consolidados.', oqueE:'Tabelas de tempo por disciplina, tipo, ciclos e QG.', paraQueServe:'Visão macro.', passos:['Abra Relatórios.','Exporte CSV se quiser.'], exemplo:'Luísa vê 40% do tempo em Português.', dicas:['Compare mensalmente.'], erros:['Esperar dados por assunto.'], resultado:'Clareza de prioridades.' },
-    pdfs: { titulo:'PDFs', icone:'fa-file-pdf', tag:'iniciante', resumo:'Acompanhe leitura de PDFs.', oqueE:'Cadastro de materiais.', paraQueServe:'Controlar avanço.', passos:['Adicione Aula.','Atualize páginas lidas.'], exemplo:'Rafael lê 200 páginas aos poucos.', dicas:['Cadastre por aula.'], erros:['Esquecer de atualizar.'], resultado:'Progresso visível.' },
+    dashboard: { titulo:'Dashboard', icone:'fa-chart-pie', tag:'iniciante', resumo:'Painel executivo com índice de preparação, prioridades e plano de ação.', oqueE:'Reúne tempo estudado, sequência, desempenho, índice de preparação, mapa de prioridades, evolução e recomendações.', paraQueServe:'Identificar rapidamente seu ritmo e o próximo passo.', passos:['Acesse pelo menu lateral.','Use os filtros para ajustar período/disciplina.','Leia o Mapa de Prioridades e o Seu Próximo Passo.'], exemplo:'João vê que estudou 8h na semana e que um assunto crítico precisa de atenção.', dicas:['Use o Mapa de Prioridades para decidir o que estudar.'], erros:['Ignorar amostras pequenas (menos de 10 questões).'], resultado:'Você saberá onde focar.' },
+    disciplinas: { titulo:'Disciplinas', icone:'fa-book-open', tag:'iniciante', resumo:'Cadastre matérias e assuntos. Recebem acertos/erros do QG quando vinculados.', oqueE:'Organize disciplinas e assuntos do edital.', paraQueServe:'Acompanhar progresso por tópico.', passos:['Clique em Nova Disciplina.','Expanda e adicione assuntos.','Registre questões manualmente ou responda no QG.'], exemplo:'Maria cadastra Português e importa questões vinculadas.', dicas:['Use a ordem do edital.'], erros:['Criar nomes duplicados.'], resultado:'Lista organizada.' },
+    cronograma: { titulo:'Cronograma', icone:'fa-calendar-plus', tag:'iniciante', resumo:'Sistema de ciclos (auto/manual) + agenda semanal.', oqueE:'Duas abas: Ciclos de Estudo e Agenda Semanal.', paraQueServe:'Planejar a rotina e acompanhar ciclos.', passos:['Aba Ciclos: escolha automático ou manual.','Configure disciplinas, importância e disponibilidade.','Gere e salve.','Acompanhe progresso na barra.'], exemplo:'João cria ciclo de 25h e o sistema incrementa a barra.', dicas:['Comece pelo automático.'], erros:['Confundir horas planejadas com efetivas.'], resultado:'Rotina clara.' },
+    cronometro: { titulo:'Cronômetro', icone:'fa-stopwatch', tag:'iniciante', resumo:'Registre o tempo real. Integrado aos ciclos.', oqueE:'Timer que grava sessões e soma ao ciclo ativo.', paraQueServe:'Medir tempo efetivo.', passos:['Selecione disciplina, assunto e (opcional) sessão do ciclo.','Clique em Iniciar.','Finalize para registrar.'], exemplo:'Ana estuda 50min de Atos e o ciclo avança.', dicas:['Finalize sempre.'], erros:['Esquecer de finalizar.'], resultado:'Dados reais no Dashboard.' },
+    qg: { titulo:'QG das Questões', icone:'fa-flag', tag:'iniciante', resumo:'Treine questões CESPE com gamificação e integração.', oqueE:'Módulo com Modo Slide, termômetro, moedas e streaks.', paraQueServe:'Treinar com feedback.', passos:['Antes de importar, escolha Disciplina e Assunto.','Cole questões ou envie PDF.','Responda.','Veja moedas, streak e jackpot.'], exemplo:'Carlos importa 10 questões de Licitações e acerta 7.', dicas:['Use o Gerador de Prompt.'], erros:['Colar fora do padrão CESPE.'], resultado:'Treino gamificado.' },
+    relatorios: { titulo:'Relatórios', icone:'fa-file-lines', tag:'iniciante', resumo:'Resumos consolidados.', oqueE:'Tabelas de tempo, ciclos e QG.', paraQueServe:'Visão macro.', passos:['Abra Relatórios.','Exporte CSV se quiser.'], exemplo:'Luísa vê 40% em Português.', dicas:['Compare mensalmente.'], erros:['Esperar dados por assunto.'], resultado:'Clareza.' },
+    pdfs: { titulo:'PDFs', icone:'fa-file-pdf', tag:'iniciante', resumo:'Acompanhe leitura de PDFs.', oqueE:'Cadastro de materiais.', paraQueServe:'Controlar avanço.', passos:['Adicione Aula.','Atualize páginas lidas.'], exemplo:'Rafael lê 200 páginas.', dicas:['Cadastre por aula.'], erros:['Esquecer de atualizar.'], resultado:'Progresso visível.' },
     leis: { titulo:'Leis', icone:'fa-scale-balanced', tag:'iniciante', resumo:'Acompanhe leitura de leis.', oqueE:'Cadastro de leis.', paraQueServe:'Controlar avanço.', passos:['Adicione Lei.','Atualize páginas.'], exemplo:'Paula lê a 8.112/90.', dicas:['Atualize sempre.'], erros:['Não informar total de páginas.'], resultado:'Progresso visível.' },
-    links: { titulo:'Links', icone:'fa-link', tag:'iniciante', resumo:'Centralize sites úteis.', oqueE:'Categorias e URLs.', paraQueServe:'Organizar recursos.', passos:['Crie categoria.','Adicione link.'], exemplo:'Diego cria Sites de Questões.', dicas:['Use nomes curtos.'], erros:['URL sem https.'], resultado:'Tudo centralizado.' },
+    links: { titulo:'Links', icone:'fa-link', tag:'iniciante', resumo:'Centralize sites úteis.', oqueE:'Categorias e URLs.', paraQueServe:'Organizar recursos.', passos:['Crie categoria.','Adicione link.'], exemplo:'Diego cria Sites de Questões.', dicas:['Nomes curtos.'], erros:['URL sem https.'], resultado:'Tudo centralizado.' },
     ia: { titulo:'IA', icone:'fa-robot', tag:'iniciante', resumo:'Atalhos para IAs.', oqueE:'ChatGPT, DeepSeek, Gemini, NotebookLM.', paraQueServe:'Gerar questões e tirar dúvidas.', passos:['Abra IA.','Clique em Acessar.'], exemplo:'Renata usa o Gerador de Prompt do QG.', dicas:['Revise o conteúdo.'], erros:['Confiar cegamente.'], resultado:'Estudos potencializados.' },
     backup: { titulo:'Backup', icone:'fa-database', tag:'iniciante', resumo:'Proteja seus dados.', oqueE:'Exportar/Importar JSON.', paraQueServe:'Evitar perdas.', passos:['Exporte semanalmente.','Importe para restaurar.'], exemplo:'Lucas salva no Drive.', dicas:['Guarde em nuvem.'], erros:['Nunca exportar.'], resultado:'Dados seguros.' },
-    configuracoes: { titulo:'Configurações', icone:'fa-sliders', tag:'iniciante', resumo:'Perfil, metas e áudio.', oqueE:'Ajustes do app.', paraQueServe:'Personalizar.', passos:['Edite perfil.','Defina metas.','Ajuste som do QG.'], exemplo:'Fernanda define 120min/dia.', dicas:['Metas realistas.'], erros:['Metas impossíveis.'], resultado:'App personalizado.' }
+    configuracoes: { titulo:'Configurações', icone:'fa-sliders', tag:'iniciante', resumo:'Perfil, metas e áudio.', oqueE:'Ajustes do app.', paraQueServe:'Personalizar.', passos:['Edite perfil.','Defina metas.','Ajuste som.'], exemplo:'Fernanda define 120min/dia.', dicas:['Metas realistas.'], erros:['Metas impossíveis.'], resultado:'App personalizado.' }
 };
 function renderHelpGrid(filter){
     const grid = document.getElementById('helpGrid'); if(!grid) return;
@@ -4397,6 +5041,10 @@ function bindEventos(){
     document.getElementById('btnRecolherTudo').onclick = recolherTudo;
     document.getElementById('btnNovaDisciplina').onclick = abrirNovaDisciplina;
     ['filtroClassif','filtroOrdem','filtroBusca'].forEach(id => { const el = document.getElementById(id); if(el) el.addEventListener('input', renderDisciplinas); });
+
+    // Filtro de prioridades — NOVO
+    const filtroPrioridade = document.getElementById('prioridadeFiltro');
+    if(filtroPrioridade) filtroPrioridade.addEventListener('change', () => renderPrioridades());
 
     // Cronograma tabs
     document.querySelectorAll('.cron-tab').forEach(tab => {
