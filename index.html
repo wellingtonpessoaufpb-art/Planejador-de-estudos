@@ -914,6 +914,80 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
 #vulpIndexContainer{min-height:200px}
 #priorityContainer{min-height:120px}
 #actionPlanContainer{min-height:100px}
+
+/* ============ QUESTÕES MULTIBANCAS ============ */
+.mb-dashboard{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center}
+@media(max-width:900px){.mb-dashboard{grid-template-columns:1fr;justify-items:center}}
+.mb-donut-wrap{position:relative;width:220px;height:220px;flex-shrink:0}
+.mb-donut-wrap canvas{width:100%;height:100%}
+.mb-donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;pointer-events:none}
+.mb-donut-pct{font-size:2.2rem;font-weight:900;color:var(--text-primary);letter-spacing:-1px;line-height:1}
+.mb-donut-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);font-weight:700;margin-top:4px}
+.mb-kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%}
+.mb-kpi{background:var(--bg-body);border:1px solid var(--border-light);border-radius:10px;padding:12px 14px;text-align:center}
+.mb-kpi i{color:var(--accent);font-size:1.1rem;margin-bottom:4px;display:block}
+.mb-kpi-value{font-size:1.3rem;font-weight:800;color:var(--text-primary);line-height:1.1}
+.mb-kpi-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.4px;color:var(--text-muted);font-weight:700;margin-top:2px}
+.mb-level-card{background:linear-gradient(160deg,rgba(140,82,255,.08),rgba(230,252,98,.03)),var(--bg-body);border:1px solid rgba(140,82,255,.22);border-radius:12px;padding:14px;display:flex;align-items:center;gap:12px;min-width:200px;width:100%}
+.mb-level-badge{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#8c52ff,#6f3ae0);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.2rem;flex-shrink:0;box-shadow:0 4px 12px rgba(140,82,255,.35)}
+.mb-level-info{flex:1;min-width:0}
+.mb-level-title{font-weight:800;font-size:.9rem;color:var(--text-primary);margin-bottom:4px}
+.mb-level-xp{font-size:.7rem;color:var(--text-muted);margin-top:3px;font-weight:600}
+.mb-ia-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:12px}
+.mb-ia-card{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg-body);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);text-decoration:none;font-weight:600;font-size:.8rem;transition:var(--transition)}
+.mb-ia-card:hover{border-color:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+.mb-ia-card i{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;flex-shrink:0}
+.mb-questao-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow-sm);position:relative;transition:var(--transition)}
+.mb-questao-card.respondida-ok{border-left:4px solid var(--success)}
+.mb-questao-card.respondida-erro{border-left:4px solid var(--danger)}
+.mb-q-num{font-size:.8rem;font-weight:800;color:var(--accent);margin-bottom:8px}
+.mb-q-vinculo{font-size:.7rem;color:var(--text-muted);margin-left:8px;font-weight:600}
+.mb-q-enun{font-size:.98rem;line-height:1.7;color:var(--text-primary);margin-bottom:14px;white-space:pre-wrap}
+.mb-alts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.mb-alt{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid var(--border-light);border-radius:10px;background:var(--bg-body);cursor:pointer;transition:all .2s;font-size:.9rem;color:var(--text-primary)}
+.mb-alt:hover:not(.disabled){border-color:var(--accent);background:var(--accent-lighter);transform:translateX(2px)}
+.mb-alt.sel{border-color:var(--accent);background:var(--accent-light);font-weight:700}
+.mb-alt.correta{border-color:var(--success);background:rgba(22,163,74,.1);color:var(--success)}
+.mb-alt.errada{border-color:var(--danger);background:rgba(220,38,38,.1);color:var(--danger)}
+.mb-alt.disabled{cursor:default;opacity:.85}
+.mb-alt.cortada{text-decoration:line-through;opacity:.45;background:rgba(220,38,38,.06);border-color:transparent}
+.mb-alt-radio{width:18px;height:18px;border-radius:50%;border:2px solid var(--border-medium);flex-shrink:0;display:flex;align-items:center;justify-content:center;background:transparent}
+.mb-alt.sel .mb-alt-radio{border-color:var(--accent);background:var(--accent)}
+.mb-alt.sel .mb-alt-radio::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff}
+.mb-alt.correta .mb-alt-radio{border-color:var(--success);background:var(--success)}
+.mb-alt.correta .mb-alt-radio::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff}
+.mb-alt.errada .mb-alt-radio{border-color:var(--danger);background:var(--danger)}
+.mb-alt-letra{font-weight:800;color:var(--text-muted);min-width:18px}
+.mb-alt.sel .mb-alt-letra{color:var(--accent)}
+.mb-alt-texto{flex:1}
+.mb-cut-btn{width:28px;height:28px;border-radius:50%;border:1px solid var(--border-light);background:transparent;color:var(--text-muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:var(--transition);flex-shrink:0}
+.mb-cut-btn:hover{border-color:var(--danger);color:var(--danger);background:rgba(220,38,38,.1)}
+.mb-cut-btn.ativa{border-color:var(--danger);color:var(--danger);background:rgba(220,38,38,.1)}
+.mb-resultado{padding:10px 14px;border-radius:10px;margin-bottom:10px;font-size:.88rem;font-weight:600;display:none}
+.mb-resultado.show{display:block;animation:fadeIn .3s}
+.mb-resultado.ok{background:rgba(22,163,74,.1);color:var(--success);border-left:3px solid var(--success)}
+.mb-resultado.no{background:rgba(220,38,38,.1);color:var(--danger);border-left:3px solid var(--danger)}
+.mb-comentario{margin-top:10px;padding:14px;border-radius:var(--radius-md);background:rgba(140,82,255,.06);border-left:4px solid var(--violet);font-size:.88rem;line-height:1.68;color:var(--text-secondary);display:none;transition:all .25s}
+.mb-comentario.show{display:block;animation:qgSlideDown .3s var(--ultra-ease-out)}
+.mb-comentario strong{color:var(--violet);display:block;margin-bottom:6px;font-size:.78rem;text-transform:uppercase;letter-spacing:.5px;font-weight:800}
+.mb-comentario .mb-comentario-texto{white-space:pre-wrap;line-height:1.72}
+.mb-q-acoes{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.mb-confirmar{background:linear-gradient(135deg,#8c52ff,#6f3ae0);color:#fff;border:none;padding:10px 22px;border-radius:10px;font-weight:800;font-size:.88rem;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:6px;transition:var(--transition);box-shadow:0 4px 14px rgba(140,82,255,.3)}
+.mb-confirmar:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 20px rgba(140,82,255,.45)}
+.mb-confirmar:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.mb-pag{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap}
+.mb-pag button{padding:7px 14px;border:1px solid var(--border-light);background:var(--bg-card);color:var(--text-secondary);border-radius:8px;font-weight:700;font-size:.8rem;cursor:pointer;transition:var(--transition);font-family:inherit;display:inline-flex;align-items:center;gap:5px}
+.mb-pag button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.mb-pag button:disabled{opacity:.4;cursor:not-allowed}
+.mb-pag-info{font-size:.82rem;color:var(--text-muted);font-weight:600}
+.mb-notif{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border-light);font-size:.85rem;color:var(--text-secondary)}
+.mb-notif:last-child{border-bottom:none}
+.mb-notif.read{opacity:.6}
+.mb-notif-time{font-size:.72rem;color:var(--text-muted);white-space:nowrap}
+.mb-empty{padding:40px 20px;text-align:center;color:var(--text-muted);font-size:.88rem}
+.mb-empty i{font-size:2.5rem;color:var(--accent);opacity:.4;display:block;margin-bottom:10px}
+.mb-aviso-inline{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:rgba(217,119,6,.08);border-left:3px solid var(--warning);color:var(--warning);font-size:.82rem;font-weight:600;margin-bottom:12px}
+.mb-aviso-inline a{color:var(--warning);text-decoration:underline;font-weight:700}
 </style>
 </head>
 <body>
@@ -982,7 +1056,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
         <h2 class="welcome-title">Bem-vindo ao VULP+ Estudos!</h2>
         <p class="welcome-message">Seu ambiente de estudos está pronto! 🎯</p>
         <p class="welcome-sub">
-            <strong>Novo:</strong> Dashboard inteligente com Índice de Preparação, Mapa de Prioridades, Evolução de Desempenho, Análise Contextual e Plano de Ação personalizado.
+            <strong>Novo:</strong> Dashboard inteligente com Índice de Preparação, Mapa de Prioridades, Evolução de Desempenho, Análise Contextual e Plano de Ação personalizado. E agora o módulo <strong>Questões Multibancas</strong> totalmente integrado ao QG e às Disciplinas.
         </p>
         <button class="welcome-btn" id="welcomeBtn"><i class="fas fa-check"></i> Entendi, vamos estudar!</button>
     </div>
@@ -1039,6 +1113,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
             <a class="nav-item" data-page="cronograma"><i class="fas fa-calendar-plus"></i><span>Cronograma</span></a>
             <a class="nav-item" data-page="cronometro"><i class="fas fa-stopwatch"></i><span>Cronômetro</span></a>
             <a class="nav-item" data-page="qg"><i class="fas fa-flag"></i><span>QG das Questões</span></a>
+            <a class="nav-item" data-page="multibancas"><i class="fas fa-list-check"></i><span>Questões Multibancas</span></a>
             <a class="nav-item" data-page="relatorios"><i class="fas fa-file-lines"></i><span>Relatórios</span></a>
             <div class="menu-label">Materiais</div>
             <a class="nav-item" data-page="pdfs"><i class="fas fa-file-pdf"></i><span>PDFs</span></a>
@@ -1051,7 +1126,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
         </nav>
         <div class="sidebar-footer">
             <button class="btn-logout" id="btnLogout"><i class="fas fa-right-from-bracket"></i> Sair</button>
-            <div class="version-info">VULP+ Estudos v3.1 · Intelligence</div>
+            <div class="version-info">VULP+ Estudos v3.3 · Multibancas</div>
         </div>
     </aside>
 
@@ -1440,6 +1515,126 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
                 </div>
             </section>
 
+            <section class="page" id="page-multibancas">
+                <div class="page-header">
+                    <h1><i class="fas fa-list-check"></i> Questões Multibancas <button class="icon-btn help-context" data-help="multibancas" title="Como usar Questões Multibancas"><i class="fas fa-circle-question"></i></button></h1>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                        <button class="btn btn-outline" id="mbLimparSessaoBtn"><i class="fas fa-eraser"></i> Limpar sessão</button>
+                        <button class="btn btn-danger" id="mbLimparTudoBtn"><i class="fas fa-trash"></i> Resetar módulo</button>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-chart-pie"></i> Desempenho da sessão</h2>
+                        <span class="subtitle">Questões respondidas na sessão atual</span>
+                    </div>
+                    <div class="mb-dashboard">
+                        <div class="mb-donut-wrap">
+                            <canvas id="mbDonut" width="240" height="240"></canvas>
+                            <div class="mb-donut-center">
+                                <div class="mb-donut-pct" id="mbDonutPct">0%</div>
+                                <div class="mb-donut-label">Taxa de acertos</div>
+                            </div>
+                        </div>
+                        <div class="mb-kpi-grid">
+                            <div class="mb-kpi"><i class="fas fa-file-alt"></i><div class="mb-kpi-value" id="mbKpiTotal">0</div><div class="mb-kpi-label">Total geral</div></div>
+                            <div class="mb-kpi"><i class="fas fa-bullseye"></i><div class="mb-kpi-value" id="mbKpiTaxa">0%</div><div class="mb-kpi-label">Acerto geral</div></div>
+                            <div class="mb-kpi"><i class="fas fa-fire"></i><div class="mb-kpi-value" id="mbKpiStreak">0</div><div class="mb-kpi-label">Dias seguidos</div></div>
+                            <div class="mb-kpi"><i class="fas fa-star"></i><div class="mb-kpi-value" id="mbKpiPontos">0</div><div class="mb-kpi-label">Pontos</div></div>
+                        </div>
+                        <div class="mb-level-card">
+                            <div class="mb-level-badge" id="mbLevelBadge">1</div>
+                            <div class="mb-level-info">
+                                <div class="mb-level-title" id="mbLevelTitle">Iniciante</div>
+                                <div class="progress-bar" style="height:8px;"><div class="progress-fill" id="mbLevelProgress" style="width:0%"></div></div>
+                                <div class="mb-level-xp" id="mbLevelXp">0/100 XP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-university"></i> Prompts por banca e assunto</h2>
+                    </div>
+                    <p class="text-muted" style="font-size:.85rem;margin-bottom:12px;">Selecione banca, disciplina e assunto cadastrados na aba Disciplinas. Depois copie o prompt para uma IA externa e importe as questões abaixo.</p>
+                    <div id="mbPromptAviso"></div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Banca organizadora</label>
+                            <select id="mbBancaSelect"><option value="">-- Escolha a banca --</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Disciplina</label>
+                            <select id="mbPromptDisc"><option value="">-- Selecione a disciplina --</option></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Assunto</label>
+                        <select id="mbPromptAss"><option value="">-- Selecione o assunto --</option></select>
+                    </div>
+                    <textarea class="qg-textarea" id="mbPromptArea" readonly placeholder="O prompt aparecerá aqui após selecionar banca, disciplina e assunto..."></textarea>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center;">
+                        <button class="btn btn-primary" id="mbCopiarPromptBtn" disabled><i class="fas fa-copy"></i> Copiar prompt</button>
+                        <button class="btn btn-outline" id="mbLimparPromptBtn"><i class="fas fa-eraser"></i> Limpar</button>
+                        <span class="text-muted" id="mbPromptCount" style="margin-left:auto;font-size:.8rem;">0 caracteres</span>
+                    </div>
+                    <div class="mb-ia-grid">
+                        <a href="https://chatgpt.com/" target="_blank" rel="noopener" class="mb-ia-card"><i class="fas fa-comment-dots" style="background:#10a37f;"></i> ChatGPT</a>
+                        <a href="https://gemini.google.com/app?hl=pt-BR" target="_blank" rel="noopener" class="mb-ia-card"><i class="fas fa-gem" style="background:linear-gradient(135deg,#4285F4,#34A853,#FBBC05,#EA4335);"></i> Gemini</a>
+                        <a href="https://chat.deepseek.com/" target="_blank" rel="noopener" class="mb-ia-card"><i class="fas fa-brain" style="background:#4f6bf7;"></i> DeepSeek</a>
+                        <a href="https://notebooklm.google/" target="_blank" rel="noopener" class="mb-ia-card"><i class="fas fa-book-open" style="background:#5b5fc7;"></i> NotebookLM</a>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-file-import"></i> Importar questões</h2>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Disciplina (opcional)</label>
+                            <select id="mbImportDisc"><option value="">Sem vínculo</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Assunto</label>
+                            <select id="mbImportAss"><option value="">Selecione disciplina</option></select>
+                        </div>
+                    </div>
+                    <textarea class="qg-textarea" id="mbImportArea" placeholder="Cole aqui as questões no formato:&#10;Questão 1&#10;Enunciado: ...&#10;A) ...&#10;B) ...&#10;C) ...&#10;D) ...&#10;E) ...&#10;Gabarito: B&#10;Comentário: ..."></textarea>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+                        <button class="btn btn-primary" id="mbImportarBtn"><i class="fas fa-file-import"></i> Importar questões</button>
+                        <button class="btn btn-outline" id="mbLimparImportBtn"><i class="fas fa-eraser"></i> Limpar</button>
+                    </div>
+                    <div id="mbImportFeedback" class="qg-feedback" style="margin-top:12px;"></div>
+                </div>
+
+                <div class="section-block" id="mbSessaoBlock">
+                    <div class="section-header">
+                        <h2><i class="fas fa-layer-group"></i> Sessão atual</h2>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                            <select id="mbSessaoDisc" class="btn btn-sm" style="max-width:220px;"><option value="">Disciplina (opcional)</option></select>
+                            <select id="mbSessaoAss" class="btn btn-sm" style="max-width:220px;"><option value="">Assunto</option></select>
+                            <button class="btn btn-sm btn-outline" id="mbVincularSessaoBtn"><i class="fas fa-link"></i> Aplicar vínculo</button>
+                        </div>
+                    </div>
+                    <div id="mbQuestoesContainer"></div>
+                    <div id="mbPagination"></div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
+                        <button class="btn btn-sm btn-outline" id="mbGerarIguaisBtn"><i class="fas fa-redo"></i> Gerar mais iguais</button>
+                        <button class="btn btn-sm btn-outline" id="mbAumentarDifBtn"><i class="fas fa-arrow-up"></i> Aumentar dificuldade</button>
+                    </div>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-header">
+                        <h2><i class="fas fa-bell"></i> Notificações recentes</h2>
+                    </div>
+                    <div id="mbNotifList"></div>
+                </div>
+            </section>
+
             <section class="page" id="page-relatorios">
                 <div class="page-header">
                     <h1><i class="fas fa-file-lines"></i> Relatórios <button class="icon-btn help-context" data-help="relatorios" title="Como usar Relatórios"><i class="fas fa-circle-question"></i></button></h1>
@@ -1487,7 +1682,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
                 <div class="page-header"><h1><i class="fas fa-database"></i> Backup e dados <button class="icon-btn help-context" data-help="backup" title="Como usar Backup"><i class="fas fa-circle-question"></i></button></h1></div>
                 <div class="section-block">
                     <div class="section-header"><h2><i class="fas fa-download"></i> Exportar</h2></div>
-                    <p class="text-muted mb-16" style="font-size:.85rem;">Baixe um arquivo JSON com todos os seus dados (incluindo QG e ciclos).</p>
+                    <p class="text-muted mb-16" style="font-size:.85rem;">Baixe um arquivo JSON com todos os seus dados (incluindo QG, Multibancas e ciclos).</p>
                     <button class="btn btn-primary" id="btnExportBackup"><i class="fas fa-download"></i> Exportar Backup</button>
                 </div>
                 <div class="section-block">
@@ -1543,6 +1738,7 @@ body.dark .table tbody tr:nth-child(even){background:rgba(140,82,255,.06)}
             <a class="bottom-nav-item" data-page="disciplinas"><i class="fas fa-book-open"></i><span>Disciplinas</span></a>
             <a class="bottom-nav-item" data-page="cronograma"><i class="fas fa-calendar-plus"></i><span>Agenda</span></a>
             <a class="bottom-nav-item" data-page="qg"><i class="fas fa-flag"></i><span>QG</span></a>
+            <a class="bottom-nav-item" data-page="multibancas"><i class="fas fa-list-check"></i><span>Multibancas</span></a>
             <a class="bottom-nav-item" data-page="relatorios"><i class="fas fa-file-lines"></i><span>Relatórios</span></a>
         </nav>
     </div>
@@ -1711,7 +1907,6 @@ function calcPct(acertos, erros){
     if(t === 0) return null;
     return ((acertos||0) / t) * 100;
 }
-
 function normalizarResposta(v){
     if(v === true || v === 'certo' || v === 'Certo' || v === 'C') return 'certo';
     if(v === false || v === 'errado' || v === 'Errado' || v === 'E') return 'errado';
@@ -1777,7 +1972,7 @@ const SUMARIO_MESTRE = [
 
 function getDefaultData(){
     return {
-        versao: 5,
+        versao: 6,
         usuario: { nome:'Estudante', concurso:'', dataProva:'' },
         senhaLocal: '',
         disciplinas: [],
@@ -1795,6 +1990,10 @@ function getDefaultData(){
             coins: 0, currentStreak: 0, bestStreak: 0, jackpots: 0,
             lastBonus5: false, lastBonus10: false, jackpotTriggered: false,
             som: { habilitado: true, musica: false, volume: 0.7 }
+        },
+        multibancas: {
+            questoes: [], respostas: [], pontos: 0, streak: 0, ultimaData: null,
+            notificacoes: [], migrado: false
         },
         migradoEm: new Date().toISOString()
     };
@@ -1845,6 +2044,39 @@ function migrarLegado(legacy){
     return novo;
 }
 
+function migrarLegadoABCDE(){
+    try{
+        const raw = localStorage.getItem('vulps_treinamento_data');
+        if(!raw) return null;
+        const legacy = JSON.parse(raw);
+        if(!legacy) return null;
+        const respostas = (legacy.respostas || []).map(r => ({
+            id: gerarId(),
+            questaoId: r.questaoId || gerarId(),
+            sessaoId: null,
+            disciplinaId: null, assuntoId: null, banca: null,
+            alternativa: null, gabarito: null,
+            acertou: !!r.acertou,
+            origem: 'multibancas',
+            data: r.data || new Date().toISOString()
+        }));
+        return {
+            questoes: [],
+            respostas,
+            pontos: legacy.pontos || 0,
+            streak: legacy.streak || 0,
+            ultimaData: legacy.ultimaData || null,
+            notificacoes: [{
+                id: gerarId(),
+                msg: 'Histórico do Questões ABCDE migrado com sucesso.',
+                tipo: 'info',
+                data: new Date().toISOString(),
+                read: false
+            }]
+        };
+    }catch(e){ return null; }
+}
+
 function carregarDados(){
     let d = null;
     try{ const raw = localStorage.getItem(STORAGE_KEY); if(raw) d = JSON.parse(raw); }catch(e){}
@@ -1867,6 +2099,23 @@ function carregarDados(){
     if(!d.qg) d.qg = getDefaultData().qg;
     const qgDef = getDefaultData().qg;
     for(const k in qgDef){ if(!(k in d.qg)) d.qg[k] = qgDef[k]; }
+    if(!d.multibancas) d.multibancas = getDefaultData().multibancas;
+    const mbDef = getDefaultData().multibancas;
+    for(const k in mbDef){ if(!(k in d.multibancas)) d.multibancas[k] = mbDef[k]; }
+    if(!d.multibancas.migrado){
+        const legado = migrarLegadoABCDE();
+        if(legado){
+            const existentes = new Set((d.multibancas.respostas||[]).map(r => r.questaoId));
+            (legado.respostas||[]).forEach(r => { if(!existentes.has(r.questaoId)) d.multibancas.respostas.push(r); });
+            d.multibancas.pontos = Math.max(d.multibancas.pontos||0, legado.pontos||0);
+            d.multibancas.streak = Math.max(d.multibancas.streak||0, legado.streak||0);
+            d.multibancas.ultimaData = d.multibancas.ultimaData || legado.ultimaData || null;
+            if(legado.notificacoes && legado.notificacoes.length){
+                d.multibancas.notificacoes = [...legado.notificacoes, ...(d.multibancas.notificacoes||[])];
+            }
+        }
+        d.multibancas.migrado = true;
+    }
     if(!d.planejamento) d.planejamento = getDefaultData().planejamento;
     const pDef = getDefaultData().planejamento;
     for(const k in pDef){ if(!(k in d.planejamento)) d.planejamento[k] = pDef[k]; }
@@ -2029,7 +2278,7 @@ window.addEventListener('pagehide', function(){ try { sessionStorage.removeItem(
 
 function aplicarTemaSalvo(){ try{ if(localStorage.getItem(THEME_KEY) === 'dark') document.body.classList.add('dark'); }catch{} atualizarIconeTema(); }
 function atualizarIconeTema(){ const icon = document.querySelector('#themeToggle i'); if(icon) icon.className = document.body.classList.contains('dark') ? 'fas fa-sun' : 'fas fa-moon'; }
-function toggleTema(){ document.body.classList.toggle('dark'); try{ localStorage.setItem(THEME_KEY, document.body.classList.contains('dark') ? 'dark':'light'); }catch{} atualizarIconeTema(); Charts.renderAll(); QG.renderAllCharts(); if(state.cronTab === 'ciclos') App.Ciclo.render(); }
+function toggleTema(){ document.body.classList.toggle('dark'); try{ localStorage.setItem(THEME_KEY, document.body.classList.contains('dark') ? 'dark':'light'); }catch{} atualizarIconeTema(); Charts.renderAll(); QG.renderAllCharts(); if(state.cronTab === 'ciclos') App.Ciclo.render(); if(state.paginaAtual === 'multibancas'){ Multibancas.renderDashboard(); } }
 
 const QGAudio = {
     _els: {}, _enabled: true, _volume: 0.7, _unlocked: false, _pending: [],
@@ -2741,6 +2990,7 @@ const Ciclo = {
         if((state.data.cronograma || []).some(a => a.status === 'concluida' && (a.duracaoRealizadaMin || 0) > 0)) return true;
         QG.ensure();
         if(state.qg.questoes.some(q => q.respostaUsuario != null)) return true;
+        if((state.data.multibancas?.respostas || []).length > 0) return true;
         return false;
     },
     render(){
@@ -3345,6 +3595,732 @@ const Ciclo = {
 };
 
 /* ============================================================
+   MULTIBANCAS — MÓDULO INTEGRADO (v3.3)
+   ============================================================ */
+const Multibancas = {
+    BANCAS: [
+        {id:'fcc', nome:'Fundação Carlos Chagas - FCC'},
+        {id:'fgv', nome:'Fundação Getúlio Vargas - FGV'},
+        {id:'cebraspe', nome:'Cebraspe / Cespe (a, b, c, d, e)'},
+        {id:'ibfc', nome:'IBFC'},
+        {id:'cesgranrio', nome:'Cesgranrio'},
+        {id:'iades', nome:'IADES'},
+        {id:'quadrix', nome:'QUADRIX'},
+        {id:'idecan', nome:'IDECAN'},
+        {id:'consulplan', nome:'CONSULPLAN'}
+    ],
+    _inited: false,
+    _ui: { paginaAtual: 1, porPagina: 6, cortadas: {} },
+    _parser: {
+        parse(texto){
+            if(!texto || !texto.trim()) return [];
+            const tl = texto.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+            const blocos = this._dividirEmBlocos(tl);
+            const qs = [];
+            for(const bloco of blocos){
+                const q = this._parseBloco(bloco);
+                if(q && q.alternativas.length >= 2){
+                    while(q.alternativas.length < 5) q.alternativas.push(`${String.fromCharCode(65+q.alternativas.length)}) [Não identificada]`);
+                    if(q.alternativas.length > 5) q.alternativas = q.alternativas.slice(0,5);
+                    qs.push({
+                        id: gerarId(),
+                        enunciado: q.enunciado || 'Enunciado não identificado',
+                        alternativas: q.alternativas,
+                        gabarito: q.gabarito !== null ? q.gabarito : null,
+                        comentario: q.comentario || null
+                    });
+                }
+            }
+            return qs;
+        },
+        _dividirEmBlocos(texto){
+            const ls = texto.split('\n');
+            const bs = [];
+            let ba = [];
+            for(let i=0;i<ls.length;i++){
+                const l = ls[i].trim();
+                const ini = /^(questão\s*\d+|q\d+|\d+[\.\)]\s+|[IVX]+[\.\)]\s+)/i.test(l) && !/^[A-Ea-e][\.\)]\s*/.test(l);
+                if(ini && ba.length && this._temConteudo(ba)){ bs.push(ba.join('\n')); ba = []; }
+                ba.push(ls[i]);
+            }
+            if(ba.length && this._temConteudo(ba)) bs.push(ba.join('\n'));
+            if(!bs.length && texto.trim().length > 20) bs.push(texto);
+            return bs;
+        },
+        _temConteudo(ls){
+            const t = ls.join('\n').trim();
+            return /[A-Ea-e][\.\)]\s*/i.test(t) || t.length > 50;
+        },
+        _parseBloco(bloco){
+            const ls = bloco.split('\n').map(l=>l.trim()).filter(l=>l);
+            if(!ls.length) return null;
+            let en='', alts=[], gab=null, com=null, ea=false, ec=false;
+            for(const l of ls){
+                if(/^(questão\s*\d+|q\d+|[IVX]+[\.\)]|\d+[\.\)])\s*$/i.test(l)) continue;
+                const am = l.match(/^\(?([A-Ea-e])\)?[\.\s]\s*(.+)/);
+                if(am && !ec){ ea=true; alts.push(`${am[1].toUpperCase()}) ${am[2].trim()}`); continue; }
+                const gm = l.match(/^(gabarito|resposta|correta|gab)[:\s]+([A-Ea-e])/i);
+                if(gm){ gab = gm[2].toUpperCase().charCodeAt(0)-65; ea=false; continue; }
+                if(/^(comentário|explicação|justificativa|comentario|explicacao)[:\s]/i.test(l)){ ec=true; ea=false; com=l.replace(/^[^:]+:\s*/,''); continue; }
+                if(ec){ com=(com?com+'\n':'')+l; continue; }
+                if(!ea && !ec) en=(en?en+'\n':'')+l;
+            }
+            if(gab === null){
+                const m = bloco.match(/(?:gabarito|resposta|correta)\s*[:=]\s*([A-Ea-e])/i);
+                if(m) gab = m[1].toUpperCase().charCodeAt(0)-65;
+            }
+            return { enunciado: en.trim(), alternativas: alts, gabarito: gab, comentario: com ? com.trim() : null };
+        }
+    },
+    _engine: {
+        _banco: {
+            'Direito Administrativo': [{enunciado:'O princípio que exige a divulgação oficial dos atos administrativos é o da:', alternativas:['A) Moralidade','B) Publicidade','C) Impessoalidade','D) Eficiência','E) Legalidade'], gabarito:1, comentario:'O princípio da publicidade (art. 37, CF/88) exige transparência.'}],
+            'Português': [{enunciado:'Há crase incorreta em:', alternativas:['A) Fui à cidade','B) Referiu-se àquela','C) Entreguei à Vossa Senhoria','D) Até à praça','E) Às 14h'], gabarito:2, comentario:'Não há crase antes de pronome de tratamento.'}],
+            'Informática': [{enunciado:'A função do Excel que calcula a média aritmética é:', alternativas:['A) SOMA','B) MÉDIA','C) MED','D) CONT.NÚM','E) DESVPAD'], gabarito:1, comentario:'MÉDIA calcula a média aritmética.'}]
+        },
+        gerarQuestoes(tema, qtd){
+            const banco = this._banco[tema] || [{enunciado:`Questão sobre ${tema}.`, alternativas:['A) Alternativa A','B) Alternativa B','C) Alternativa C','D) Alternativa D','E) Alternativa E'], gabarito:0, comentario:`Explicação sobre ${tema}.`}];
+            return Array.from({length: qtd}, () => {
+                const b = banco[Math.floor(Math.random() * banco.length)];
+                return {
+                    id: gerarId(),
+                    enunciado: b.enunciado,
+                    alternativas: b.alternativas.slice(),
+                    gabarito: b.gabarito,
+                    comentario: b.comentario,
+                    respostaUsuario: null,
+                    confirmada: false,
+                    showComentario: false,
+                    disciplinaId: null,
+                    assuntoId: null,
+                    sessaoId: 'local-' + Date.now()
+                };
+            });
+        }
+    },
+
+    ensure(){
+        if(!state.data.multibancas){
+            state.data.multibancas = {
+                questoes: [], respostas: [], pontos: 0, streak: 0,
+                ultimaData: null, notificacoes: [], migrado: true
+            };
+        }
+        const mb = state.data.multibancas;
+        if(!Array.isArray(mb.questoes)) mb.questoes = [];
+        if(!Array.isArray(mb.respostas)) mb.respostas = [];
+        if(!Array.isArray(mb.notificacoes)) mb.notificacoes = [];
+        if(typeof mb.pontos !== 'number') mb.pontos = 0;
+        if(typeof mb.streak !== 'number') mb.streak = 0;
+        return mb;
+    },
+
+    init(){
+        if(this._inited) return;
+        this._inited = true;
+        this.ensure();
+
+        const bancaSel = document.getElementById('mbBancaSelect');
+        if(bancaSel){
+            bancaSel.innerHTML = '<option value="">-- Escolha a banca --</option>' + this.BANCAS.map(b => `<option value="${b.id}">${escapeHtml(b.nome)}</option>`).join('');
+        }
+
+        // Banca / Disciplina / Assunto do prompt (v3.3 - integrado)
+        document.getElementById('mbBancaSelect')?.addEventListener('change', () => this.atualizarPrompt());
+        document.getElementById('mbPromptDisc')?.addEventListener('change', () => this.atualizarAssuntosPrompt());
+        document.getElementById('mbPromptAss')?.addEventListener('change', () => this.atualizarPrompt());
+
+        document.getElementById('mbCopiarPromptBtn')?.addEventListener('click', () => this.copiarPrompt());
+        document.getElementById('mbLimparPromptBtn')?.addEventListener('click', () => this.limparPrompt());
+        document.getElementById('mbImportarBtn')?.addEventListener('click', () => this.importarQuestoes());
+        document.getElementById('mbLimparImportBtn')?.addEventListener('click', () => this.limparImportArea());
+        document.getElementById('mbImportDisc')?.addEventListener('change', () => this.atualizarAssuntosImport());
+        document.getElementById('mbSessaoDisc')?.addEventListener('change', () => this.atualizarAssuntosSessao());
+        document.getElementById('mbVincularSessaoBtn')?.addEventListener('click', () => this.vincularSessao());
+        document.getElementById('mbGerarIguaisBtn')?.addEventListener('click', () => this.gerarMaisIguais());
+        document.getElementById('mbAumentarDifBtn')?.addEventListener('click', () => this.aumentarDificuldade());
+        document.getElementById('mbLimparSessaoBtn')?.addEventListener('click', () => this.limparSessao());
+        document.getElementById('mbLimparTudoBtn')?.addEventListener('click', () => this.limparTudo());
+    },
+
+    render(){
+        this.ensure();
+        this.init();
+        this.populateSelects();
+        this.renderPromptCount();
+        this.renderDashboard();
+        this.renderQuestoes();
+        this.renderNotificacoes();
+    },
+
+    populateSelects(){
+        const discs = (state.data.disciplinas||[]).filter(d => d.ativo !== false);
+        const opts = discs.map(d => `<option value="${d.id}">${escapeHtml(d.nome)}</option>`).join('');
+
+        // === Prompt section (v3.3) — Disciplina/Assunto da aba Disciplinas ===
+        const promptDisc = document.getElementById('mbPromptDisc');
+        const aviso = document.getElementById('mbPromptAviso');
+        if(promptDisc){
+            if(discs.length === 0){
+                promptDisc.innerHTML = '<option value="">⚠️ Nenhuma disciplina cadastrada</option>';
+                promptDisc.disabled = true;
+                if(aviso) aviso.innerHTML = `<div class="mb-aviso-inline"><i class="fas fa-info-circle"></i> Cadastre disciplinas e assuntos na aba <a href="javascript:App.navigateTo('disciplinas')">Disciplinas</a> para habilitar os seletores do prompt.</div>`;
+            } else {
+                promptDisc.innerHTML = '<option value="">-- Selecione a disciplina --</option>' + opts;
+                promptDisc.disabled = false;
+                if(aviso) aviso.innerHTML = '';
+            }
+        }
+        const promptAss = document.getElementById('mbPromptAss');
+        if(promptAss) promptAss.innerHTML = '<option value="">-- Selecione o assunto --</option>';
+
+        // === Import section ===
+        const importDisc = document.getElementById('mbImportDisc');
+        const sessaoDisc = document.getElementById('mbSessaoDisc');
+        if(importDisc) importDisc.innerHTML = '<option value="">Sem vínculo</option>' + opts;
+        if(sessaoDisc) sessaoDisc.innerHTML = '<option value="">Sem vínculo</option>' + opts;
+        this.atualizarAssuntosImport();
+        this.atualizarAssuntosSessao();
+    },
+
+    atualizarAssuntosPrompt(){
+        const discId = document.getElementById('mbPromptDisc')?.value;
+        const sel = document.getElementById('mbPromptAss');
+        if(!sel) return;
+        if(!discId){ sel.innerHTML = '<option value="">-- Selecione o assunto --</option>'; this.atualizarPrompt(); return; }
+        const d = (state.data.disciplinas||[]).find(x => x.id === discId);
+        if(!d || d.assuntos.length === 0){
+            sel.innerHTML = '<option value="">⚠️ Disciplina sem assuntos</option>';
+            this.atualizarPrompt();
+            return;
+        }
+        sel.innerHTML = '<option value="">-- Selecione o assunto --</option>' + d.assuntos.map(a => `<option value="${a.id}">${escapeHtml(a.nome)}</option>`).join('');
+        this.atualizarPrompt();
+    },
+
+    atualizarAssuntosImport(){
+        const discId = document.getElementById('mbImportDisc')?.value;
+        const sel = document.getElementById('mbImportAss');
+        if(!sel) return;
+        if(!discId){ sel.innerHTML = '<option value="">Selecione disciplina</option>'; return; }
+        const d = (state.data.disciplinas||[]).find(x => x.id === discId);
+        sel.innerHTML = '<option value="">Selecione assunto</option>' + (d?.assuntos||[]).map(a => `<option value="${a.id}">${escapeHtml(a.nome)}</option>`).join('');
+    },
+
+    atualizarAssuntosSessao(){
+        const discId = document.getElementById('mbSessaoDisc')?.value;
+        const sel = document.getElementById('mbSessaoAss');
+        if(!sel) return;
+        if(!discId){ sel.innerHTML = '<option value="">Assunto</option>'; return; }
+        const d = (state.data.disciplinas||[]).find(x => x.id === discId);
+        sel.innerHTML = '<option value="">Assunto</option>' + (d?.assuntos||[]).map(a => `<option value="${a.id}">${escapeHtml(a.nome)}</option>`).join('');
+    },
+
+    _gerarPromptTexto(bancaNome, disciplina, assunto){
+        return `Sua tarefa é gerar questões de múltipla escolha com 5 alternativas (A, B, C, D, E), no padrão da banca indicada.\n\n📌 Banca: ${bancaNome}\n📌 Disciplina: ${disciplina}\n📌 Assunto: ${assunto}\nQuantidade: 20\n\n📌 Formato obrigatório:\nQuestão [número] (${bancaNome})\nEnunciado: [texto sobre ${disciplina} — ${assunto}]\nA) [alternativa]\nB) [alternativa]\nC) [alternativa]\nD) [alternativa]\nE) [alternativa]\n\nGabarito: [letra]\n\nComentário: [explicação detalhada]`;
+    },
+
+    atualizarPrompt(){
+        const bancaId = document.getElementById('mbBancaSelect')?.value || '';
+        const discId = document.getElementById('mbPromptDisc')?.value || '';
+        const assId = document.getElementById('mbPromptAss')?.value || '';
+        const banca = this.BANCAS.find(b => b.id === bancaId);
+        const disc = (state.data.disciplinas||[]).find(d => d.id === discId);
+        const ass = disc?.assuntos?.find(a => a.id === assId);
+        const area = document.getElementById('mbPromptArea');
+        const btn = document.getElementById('mbCopiarPromptBtn');
+        if(area && btn){
+            if(banca && disc && ass){
+                area.value = this._gerarPromptTexto(banca.nome, disc.nome, ass.nome);
+                btn.disabled = false;
+            } else {
+                area.value = '';
+                btn.disabled = true;
+            }
+            this.renderPromptCount();
+        }
+    },
+
+    renderPromptCount(){
+        const area = document.getElementById('mbPromptArea');
+        const count = document.getElementById('mbPromptCount');
+        if(area && count) count.textContent = area.value.length + ' caracteres';
+    },
+
+    async copiarPrompt(){
+        const area = document.getElementById('mbPromptArea');
+        if(!area?.value) return;
+        try { await navigator.clipboard.writeText(area.value); toast('Prompt copiado!', 'success'); }
+        catch(e){
+            area.select();
+            try { document.execCommand('copy'); toast('Prompt copiado!', 'success'); }
+            catch(err){ toast('Não foi possível copiar.', 'error'); }
+        }
+    },
+
+    limparPrompt(){
+        const b = document.getElementById('mbBancaSelect'); if(b) b.value = '';
+        const d = document.getElementById('mbPromptDisc'); if(d) d.value = '';
+        const a = document.getElementById('mbPromptAss'); if(a) a.innerHTML = '<option value="">-- Selecione o assunto --</option>';
+        const p = document.getElementById('mbPromptArea'); if(p) p.value = '';
+        const btn = document.getElementById('mbCopiarPromptBtn'); if(btn) btn.disabled = true;
+        this.renderPromptCount();
+    },
+
+    _feedback(el, msg, tipo){
+        if(!el) return;
+        el.className = 'qg-feedback show ' + tipo;
+        el.textContent = msg;
+        setTimeout(() => { el.classList.remove('show'); }, 4000);
+    },
+
+    importarQuestoes(){
+        const texto = document.getElementById('mbImportArea')?.value.trim();
+        const fb = document.getElementById('mbImportFeedback');
+        if(!texto){ this._feedback(fb, '⚠️ Cole um texto com questões.', 'no'); return; }
+        const parsed = this._parser.parse(texto);
+        if(parsed.length === 0){ this._feedback(fb, '❌ Não foi possível identificar questões.', 'no'); return; }
+        const mb = this.ensure();
+        const discId = document.getElementById('mbImportDisc')?.value || '';
+        const assId = document.getElementById('mbImportAss')?.value || '';
+        const sessaoId = gerarId();
+        parsed.forEach(q => {
+            q.disciplinaId = discId || null;
+            q.assuntoId = assId || null;
+            q.sessaoId = sessaoId;
+            q.respostaUsuario = null;
+            q.confirmada = false;
+            q.showComentario = false;
+        });
+        mb.questoes = parsed;
+        mb.sessaoAtual = sessaoId;
+        this._ui.paginaAtual = 1;
+        this._ui.cortadas = {};
+        document.getElementById('mbImportArea').value = '';
+        this._feedback(fb, `✅ ${parsed.length} questão(ões) importada(s)!`, 'ok');
+        this._notificar(`Sessão criada com ${parsed.length} questão(ões).`, 'info');
+        salvarDados();
+        this.render();
+        toast(`${parsed.length} questões importadas!`, 'success');
+    },
+
+    limparImportArea(){
+        const area = document.getElementById('mbImportArea'); if(area) area.value = '';
+        const fb = document.getElementById('mbImportFeedback'); if(fb) fb.classList.remove('show');
+    },
+
+    _registrarResposta(q, acertou){
+        const mb = this.ensure();
+        if(mb.respostas.some(r => r.questaoId === q.id)) return;
+        mb.respostas.push({
+            id: gerarId(),
+            questaoId: q.id,
+            sessaoId: q.sessaoId || null,
+            disciplinaId: q.disciplinaId || null,
+            assuntoId: q.assuntoId || null,
+            banca: q.banca || null,
+            alternativa: q.respostaUsuario,
+            gabarito: q.gabarito,
+            acertou: !!acertou,
+            origem: 'multibancas',
+            data: new Date().toISOString()
+        });
+    },
+
+    _aplicarPontuacao(acertou){
+        const mb = this.ensure();
+        const pontosAntes = mb.pontos;
+        if(acertou) mb.pontos += 10;
+        else mb.pontos = Math.max(0, mb.pontos - 2);
+        const hoje = hojeISO();
+        if(mb.ultimaData !== hoje){
+            const ontem = new Date(Date.now()-86400000).toISOString().slice(0,10);
+            mb.streak = mb.ultimaData === ontem ? (mb.streak||0)+1 : 1;
+            mb.ultimaData = hoje;
+            this._notificar(`Novo dia de estudo! Sequência: ${mb.streak} dia(s).`, 'streak');
+        }
+        const nivelAntes = Math.floor(pontosAntes/100)+1;
+        const nivelDepois = Math.floor(mb.pontos/100)+1;
+        if(nivelDepois > nivelAntes){
+            this._notificar(`🎉 Você subiu para o nível ${nivelDepois}!`, 'level');
+            toast('Nível ' + nivelDepois + ' alcançado!', 'gold');
+        }
+    },
+
+    _vincularDisciplina(q, acertou){
+        if(!q.disciplinaId || !q.assuntoId) return;
+        const disc = (state.data.disciplinas||[]).find(d => d.id === q.disciplinaId);
+        if(!disc) return;
+        const ass = disc.assuntos.find(a => a.id === q.assuntoId);
+        if(!ass) return;
+        if(!ass.historico) ass.historico = [];
+        if(ass.historico.some(h => h.questaoId === q.id)) return;
+        if(acertou) ass.acertos = (ass.acertos||0)+1;
+        else ass.erros = (ass.erros||0)+1;
+        ass.ultimaAtualizacao = new Date().toISOString();
+        ass.historico.push({
+            id: gerarId(), data: new Date().toISOString(),
+            acertos: acertou?1:0, erros: acertou?0:1,
+            pct: acertou?100:0, origem: 'multibancas',
+            questaoId: q.id, sessaoId: q.sessaoId || null
+        });
+        if((ass.acertos+ass.erros) > 0) ass.estudado = true;
+    },
+
+    _notificar(msg, tipo){
+        const mb = this.ensure();
+        mb.notificacoes.unshift({ id: gerarId(), msg, tipo: tipo||'info', data: new Date().toISOString(), read: false });
+        if(mb.notificacoes.length > 30) mb.notificacoes.length = 30;
+        salvarDados();
+    },
+
+    selecionarAlternativa(idx, alt){
+        const q = this.ensure().questoes[idx];
+        if(!q || q.confirmada) return;
+        q.respostaUsuario = alt;
+        const card = document.querySelector(`.mb-questao-card[data-qcard="${idx}"]`);
+        if(card){
+            card.querySelectorAll('.mb-alt').forEach(el => {
+                el.classList.toggle('sel', parseInt(el.dataset.alt) === alt);
+            });
+            const btn = card.querySelector('.mb-confirmar');
+            if(btn) btn.disabled = false;
+        }
+        salvarDados();
+    },
+
+    toggleCortar(idx, alt){
+        const q = this.ensure().questoes[idx];
+        if(!q || q.confirmada) return;
+        if(!this._ui.cortadas[idx]) this._ui.cortadas[idx] = new Set();
+        const set = this._ui.cortadas[idx];
+        if(set.has(alt)) set.delete(alt); else set.add(alt);
+        const el = document.querySelector(`.mb-alt[data-qidx="${idx}"][data-alt="${alt}"]`);
+        if(el) el.classList.toggle('cortada', set.has(alt));
+        const btn = el?.querySelector('.mb-cut-btn');
+        if(btn) btn.classList.toggle('ativa', set.has(alt));
+    },
+
+    confirmar(idx){
+        const i = parseInt(idx);
+        const mb = this.ensure();
+        const q = mb.questoes[i];
+        if(!q || q.confirmada) return;
+        if(q.respostaUsuario === null || q.respostaUsuario === undefined){ toast('Selecione uma alternativa.', 'error'); return; }
+        const acertou = q.gabarito !== null && q.respostaUsuario === q.gabarito;
+        q.confirmada = true;
+        q.acertou = acertou;
+
+        // Registra dados (uma única vez por questão confirmada)
+        this._registrarResposta(q, acertou);
+        this._aplicarPontuacao(acertou);
+        this._vincularDisciplina(q, acertou);
+
+        // === Áudio: reutiliza QGAudio (mesmo arquivo, mesmas configurações) ===
+        if(acertou) QGAudio.play('acerto');
+        else QGAudio.play('erro');
+
+        salvarDados();
+        this.renderQuestoes();
+        this.renderDashboard();
+        this.renderNotificacoes();
+    },
+
+    toggleComentario(idx){
+        const mb = this.ensure();
+        const q = mb.questoes[idx];
+        if(!q) return;
+        q.showComentario = !q.showComentario;
+        const el = document.getElementById('mb-com-' + idx);
+        if(el) el.classList.toggle('show', q.showComentario);
+        const btn = document.querySelector(`.mb-ver-comentario[data-qidx="${idx}"]`);
+        if(btn) btn.innerHTML = `<i class="fas fa-comment-dots"></i> ${q.showComentario ? 'Ocultar comentário' : 'Ver comentário'}`;
+        salvarDados();
+    },
+
+    _vincText(q){
+        if(!q.disciplinaId || !q.assuntoId) return '';
+        const d = (state.data.disciplinas||[]).find(x => x.id === q.disciplinaId);
+        const a = d?.assuntos.find(x => x.id === q.assuntoId);
+        if(!d || !a) return '';
+        return `· <i class="fas fa-link"></i> ${escapeHtml(d.nome)} › ${escapeHtml(a.nome)}`;
+    },
+
+    _renderQuestaoCard(q, idx){
+        const resp = q.respostaUsuario;
+        const confirmada = q.confirmada;
+        const acertou = confirmada && resp === q.gabarito;
+        const cls = confirmada ? (acertou ? 'respondida-ok' : 'respondida-erro') : '';
+        const vinc = q.disciplinaId && q.assuntoId ? this._vincText(q) : '';
+        const cortadas = this._ui.cortadas[idx] || new Set();
+        const altsHtml = q.alternativas.map((alt, i) => {
+            const letra = String.fromCharCode(65+i);
+            let clsAlt = 'mb-alt';
+            if(confirmada){
+                clsAlt += ' disabled';
+                if(q.gabarito !== null && i === q.gabarito) clsAlt += ' correta';
+                else if(i === resp) clsAlt += ' errada';
+            } else {
+                if(resp === i) clsAlt += ' sel';
+                if(cortadas.has(i)) clsAlt += ' cortada';
+            }
+            return `<div class="${clsAlt}" data-qidx="${idx}" data-alt="${i}">
+                <div class="mb-alt-radio"></div>
+                <span class="mb-alt-letra">${letra})</span>
+                <span class="mb-alt-texto">${escapeHtml(String(alt).replace(/^[A-Ea-e][\.\)]\s*/,''))}</span>
+                ${!confirmada ? `<button class="mb-cut-btn ${cortadas.has(i)?'ativa':''}" data-qidx="${idx}" data-alt="${i}" title="Eliminar"><i class="fas fa-cut"></i></button>` : ''}
+            </div>`;
+        }).join('');
+        let resultado = '';
+        if(confirmada){
+            if(acertou){
+                resultado = `<div class="mb-resultado show ok">✅ <strong>Você acertou!</strong></div>`;
+            } else {
+                const gabStr = q.gabarito !== null ? String.fromCharCode(65+q.gabarito) : 'não identificado';
+                resultado = `<div class="mb-resultado show no">❌ <strong>Você errou.</strong> Gabarito: <strong>${gabStr}</strong></div>`;
+            }
+        }
+        const comentarioHtml = q.comentario ? `<div class="mb-comentario ${q.showComentario?'show':''}" id="mb-com-${idx}">
+            <strong>💬 Comentário técnico</strong>
+            <div class="mb-comentario-texto">${escapeHtml(q.comentario).replace(/\n/g,'<br>')}</div>
+            <button class="qg-comentario-btn" data-expand-mb="${idx}" style="margin-top:10px;"><i class="fas fa-expand"></i> Ler comentário completo</button>
+        </div>` : '';
+        const btnComentario = q.comentario ? `<button class="btn btn-sm btn-outline mb-ver-comentario" data-qidx="${idx}"><i class="fas fa-comment-dots"></i> ${q.showComentario ? 'Ocultar comentário' : 'Ver comentário'}</button>` : '';
+        return `<div class="mb-questao-card ${cls}" data-qcard="${idx}">
+            <div class="mb-q-num">Questão ${idx+1} ${vinc}</div>
+            <div class="mb-q-enun">${escapeHtml(q.enunciado).replace(/\n/g,'<br>')}</div>
+            <div class="mb-alts">${altsHtml}</div>
+            ${resultado}
+            ${comentarioHtml}
+            <div class="mb-q-acoes">
+                ${!confirmada ? `<button class="mb-confirmar" data-qidx="${idx}" ${resp===null||resp===undefined?'disabled':''}><i class="fas fa-check-circle"></i> Confirmar resposta</button>` : ''}
+                ${btnComentario}
+            </div>
+        </div>`;
+    },
+
+    renderQuestoes(){
+        const mb = this.ensure();
+        const container = document.getElementById('mbQuestoesContainer');
+        const pag = document.getElementById('mbPagination');
+        if(!container) return;
+        const qs = mb.questoes || [];
+        if(qs.length === 0){
+            container.innerHTML = `<div class="mb-empty"><i class="fas fa-inbox"></i>Nenhuma questão na sessão. Importe questões ou gere um prompt acima.</div>`;
+            if(pag) pag.innerHTML = '';
+            return;
+        }
+        const total = Math.ceil(qs.length / this._ui.porPagina);
+        if(this._ui.paginaAtual > total) this._ui.paginaAtual = total;
+        if(this._ui.paginaAtual < 1) this._ui.paginaAtual = 1;
+        const start = (this._ui.paginaAtual - 1) * this._ui.porPagina;
+        const page = qs.slice(start, start + this._ui.porPagina);
+        let html = '';
+        page.forEach((q, i) => {
+            const idx = start + i;
+            html += this._renderQuestaoCard(q, idx);
+        });
+        container.innerHTML = html;
+
+        container.querySelectorAll('.mb-alt').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if(e.target.closest('.mb-cut-btn')) return;
+                const idx = parseInt(el.dataset.qidx);
+                const alt = parseInt(el.dataset.alt);
+                this.selecionarAlternativa(idx, alt);
+            });
+        });
+        container.querySelectorAll('.mb-cut-btn').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const idx = parseInt(el.dataset.qidx);
+                const alt = parseInt(el.dataset.alt);
+                this.toggleCortar(idx, alt);
+            });
+        });
+        container.querySelectorAll('.mb-confirmar').forEach(el => {
+            el.addEventListener('click', () => this.confirmar(el.dataset.qidx));
+        });
+        container.querySelectorAll('.mb-ver-comentario').forEach(el => {
+            el.addEventListener('click', () => this.toggleComentario(el.dataset.qidx));
+        });
+        container.querySelectorAll('[data-expand-mb]').forEach(el => {
+            el.addEventListener('click', () => {
+                const idx = parseInt(el.dataset.expandMb);
+                const q = mb.questoes[idx];
+                if(q) QG._abrirComentarioModal(q);
+            });
+        });
+
+        if(pag){
+            if(total <= 1) pag.innerHTML = '';
+            else {
+                pag.innerHTML = `<div class="mb-pag">
+                    <button ${this._ui.paginaAtual===1?'disabled':''} data-dir="-1"><i class="fas fa-chevron-left"></i> Anterior</button>
+                    <span class="mb-pag-info">Página ${this._ui.paginaAtual} de ${total}</span>
+                    <button ${this._ui.paginaAtual===total?'disabled':''} data-dir="1">Próxima <i class="fas fa-chevron-right"></i></button>
+                </div>`;
+                pag.querySelectorAll('[data-dir]').forEach(b => b.addEventListener('click', () => {
+                    this._ui.paginaAtual += parseInt(b.dataset.dir);
+                    this.renderQuestoes();
+                }));
+            }
+        }
+    },
+
+    vincularSessao(){
+        const discId = document.getElementById('mbSessaoDisc')?.value || '';
+        const assId = document.getElementById('mbSessaoAss')?.value || '';
+        const mb = this.ensure();
+        let count = 0;
+        mb.questoes.forEach(q => {
+            if(!q.confirmada){
+                q.disciplinaId = discId || null;
+                q.assuntoId = assId || null;
+                count++;
+            }
+        });
+        salvarDados();
+        this.renderQuestoes();
+        toast(`${count} questão(ões) vinculada(s).`, 'success');
+    },
+
+    gerarMaisIguais(){
+        const mb = this.ensure();
+        if(mb.questoes.length === 0){ toast('Importe questões primeiro.', 'error'); return; }
+        const tema = this._temaAtual();
+        const novas = this._engine.gerarQuestoes(tema, 3);
+        novas.forEach(q => { q.sessaoId = mb.sessaoAtual || ('local-' + Date.now()); });
+        mb.questoes.push(...novas);
+        this._ui.paginaAtual = Math.ceil(mb.questoes.length / this._ui.porPagina);
+        salvarDados();
+        this.renderQuestoes();
+        toast('3 questões adicionadas.', 'success');
+    },
+
+    aumentarDificuldade(){
+        const mb = this.ensure();
+        const tema = this._temaAtual();
+        const novas = this._engine.gerarQuestoes(tema, 3);
+        const sessaoId = gerarId();
+        novas.forEach(q => { q.sessaoId = sessaoId; });
+        mb.questoes = novas;
+        mb.sessaoAtual = sessaoId;
+        this._ui.paginaAtual = 1;
+        this._ui.cortadas = {};
+        salvarDados();
+        this.renderQuestoes();
+        this.renderDashboard();
+        toast('Nova sessão de dificuldade elevada.', 'info');
+    },
+
+    _temaAtual(){
+        const mb = this.ensure();
+        const q = mb.questoes.find(x => x.disciplinaId);
+        if(q){
+            const d = (state.data.disciplinas||[]).find(x => x.id === q.disciplinaId);
+            if(d) return d.nome;
+        }
+        return 'Direito Administrativo';
+    },
+
+    limparSessao(){
+        if(!confirm('Limpar as questões da sessão atual? As respostas já registradas no histórico serão mantidas.')) return;
+        const mb = this.ensure();
+        mb.questoes = [];
+        this._ui.paginaAtual = 1;
+        this._ui.cortadas = {};
+        salvarDados();
+        this.render();
+        toast('Sessão limpa.', 'info');
+    },
+
+    limparTudo(){
+        if(!confirm('Resetar o módulo Questões Multibancas? Histórico, pontos e streak serão apagados. Os dados do QG e das disciplinas não serão afetados.')) return;
+        state.data.multibancas = { questoes: [], respostas: [], pontos: 0, streak: 0, ultimaData: null, notificacoes: [], migrado: true };
+        this._ui.paginaAtual = 1;
+        this._ui.cortadas = {};
+        salvarDados();
+        this.render();
+        toast('Módulo Questões Multibancas resetado.', 'info');
+    },
+
+    _drawDonut(pct, total){
+        const canvas = document.getElementById('mbDonut');
+        if(!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        const size = Math.max(rect.width || 0, 200);
+        canvas.width = size*dpr;
+        canvas.height = size*dpr;
+        canvas.style.width = size + 'px';
+        canvas.style.height = size + 'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+        const w = size, h = size, cx = w/2, cy = h/2, r = Math.min(w,h)*0.38;
+        ctx.clearRect(0,0,w,h);
+        const borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-light').trim() || '#eceef2';
+        const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#8c52ff';
+        ctx.beginPath(); ctx.arc(cx,cy,r,0,2*Math.PI); ctx.strokeStyle = borderColor; ctx.lineWidth = 14; ctx.stroke();
+        if(total > 0 && pct > 0){
+            const start = -Math.PI/2;
+            const ang = (pct/100)*2*Math.PI;
+            ctx.beginPath(); ctx.arc(cx,cy,r,start,start+ang); ctx.strokeStyle = accentColor; ctx.lineWidth = 14; ctx.lineCap = 'round'; ctx.stroke();
+        }
+    },
+
+    renderDashboard(){
+        const mb = this.ensure();
+        const sessao = mb.questoes.filter(q => q.confirmada);
+        const acertosS = sessao.filter(q => q.gabarito !== null && q.respostaUsuario === q.gabarito).length;
+        const totalS = sessao.length;
+        const pctS = totalS > 0 ? (acertosS/totalS)*100 : 0;
+
+        const pctEl = document.getElementById('mbDonutPct');
+        if(pctEl) pctEl.textContent = pctS.toFixed(0) + '%';
+        this._drawDonut(pctS, totalS);
+
+        const total = mb.respostas.length;
+        const acertos = mb.respostas.filter(r => r.acertou).length;
+        const taxa = total > 0 ? (acertos/total)*100 : 0;
+        const elTotal = document.getElementById('mbKpiTotal');
+        const elTaxa = document.getElementById('mbKpiTaxa');
+        const elStreak = document.getElementById('mbKpiStreak');
+        const elPontos = document.getElementById('mbKpiPontos');
+        if(elTotal) elTotal.textContent = total;
+        if(elTaxa) elTaxa.textContent = taxa.toFixed(0) + '%';
+        if(elStreak) elStreak.textContent = mb.streak || 0;
+        if(elPontos) elPontos.textContent = mb.pontos || 0;
+
+        const nivel = Math.floor((mb.pontos||0)/100)+1;
+        const xp = (mb.pontos||0)%100;
+        const titulos = ['Iniciante','Estudante','Concurseiro','Especialista','Mestre','Lenda'];
+        const elBadge = document.getElementById('mbLevelBadge');
+        const elTitulo = document.getElementById('mbLevelTitle');
+        const elProg = document.getElementById('mbLevelProgress');
+        const elXp = document.getElementById('mbLevelXp');
+        if(elBadge) elBadge.textContent = nivel;
+        if(elTitulo) elTitulo.textContent = titulos[Math.min(nivel-1, titulos.length-1)];
+        if(elProg) elProg.style.width = xp + '%';
+        if(elXp) elXp.textContent = xp + '/100 XP';
+    },
+
+    renderNotificacoes(){
+        const mb = this.ensure();
+        const el = document.getElementById('mbNotifList');
+        if(!el) return;
+        if(mb.notificacoes.length === 0){
+            el.innerHTML = '<div class="mb-empty" style="padding:20px;"><i class="fas fa-bell-slash"></i>Sem notificações ainda.</div>';
+            return;
+        }
+        el.innerHTML = mb.notificacoes.slice(0,10).map(n => `<div class="mb-notif ${n.read?'read':''}">
+            <span><i class="fas ${n.tipo==='level'?'fa-trophy':n.tipo==='streak'?'fa-fire':'fa-info-circle'}"></i> ${escapeHtml(n.msg)}</span>
+            <span class="mb-notif-time">${formatarDataHora(n.data)}</span>
+        </div>`).join('');
+    }
+};
+
+/* ============================================================
    VULP+ ANALYTICS — Motor de Análise e Preparação
    ============================================================ */
 const VULPAnalytics = {
@@ -3613,7 +4589,7 @@ const InsightEngine = {
         });
         if(semDados.length > 0){
             insights.push({ tipo:'info', icone:'fa-info-circle', titulo:'Amostra limitada',
-                texto:`<strong>${semDados.length}</strong> disciplina(s) possuem menos de ${VULPAnalytics.MIN_QUESTIONS_INDEX} questões respondidas. Responda mais questões no QG para análise confiável.`,
+                texto:`<strong>${semDados.length}</strong> disciplina(s) possuem menos de ${VULPAnalytics.MIN_QUESTIONS_INDEX} questões respondidas. Responda mais questões no QG ou no Multibancas para análise confiável.`,
                 origem:'Análise de cobertura de dados' });
         }
 
@@ -3871,9 +4847,13 @@ function renderVisaoExecutiva(){
     const c30 = VULPAnalytics.comparar(30, 30);
     QG.ensure();
     const qs = state.qg.questoes || [];
-    const resp = qs.filter(q => q.respostaUsuario != null);
-    const acertos = resp.filter(q => acertouQuestao(q)).length;
-    const pctGeral = resp.length > 0 ? (acertos / resp.length) * 100 : null;
+    const qgResp = qs.filter(q => q.respostaUsuario != null);
+    const qgAcertos = qgResp.filter(q => acertouQuestao(q)).length;
+    const mbResp = (state.data.multibancas && state.data.multibancas.respostas) || [];
+    const mbAcertos = mbResp.filter(r => r.acertou).length;
+    const respLen = qgResp.length + mbResp.length;
+    const acertosTotal = qgAcertos + mbAcertos;
+    const pctGeral = respLen > 0 ? (acertosTotal / respLen) * 100 : null;
     const progAss = Calc.progressoAssuntos();
     const emAndamento = (state.data.disciplinas || []).filter(d => (d.assuntos || []).some(a => a.estudado || (a.acertos + a.erros) > 0)).length;
     const semanaSeg = Calc.semanaSegundos();
@@ -3883,8 +4863,8 @@ function renderVisaoExecutiva(){
     const cards = [
         { label:'Tempo · 7 dias', icon:'fa-clock', value: formatarHorasMinLong(c7.tempoAtual), delta: c7.temComparacao ? c7.tempoPct : null, note: c7.temComparacao ? `vs ${formatarHorasMinLong(c7.tempoAnterior)} no período anterior` : 'Primeira semana com dados' },
         { label:'Tempo · 30 dias', icon:'fa-calendar', value: formatarHorasMinLong(c30.tempoAtual), delta: c30.temComparacao ? c30.tempoPct : null, note: c30.temComparacao ? `vs ${formatarHorasMinLong(c30.tempoAnterior)} no período anterior` : 'Primeiro mês com dados' },
-        { label:'Questões respondidas', icon:'fa-check-circle', value: resp.length, delta: null, note: `${acertos} acertos · ${resp.length - acertos} erros` },
-        { label:'Aproveitamento geral', icon:'fa-percent', value: pctGeral !== null ? pctGeral.toFixed(1) + '%' : '—', delta: null, note: resp.length < 20 ? `Amostra pequena (${resp.length} questões)` : 'Base: questões respondidas no QG' },
+        { label:'Questões respondidas', icon:'fa-check-circle', value: respLen, delta: null, note: `${acertosTotal} acertos · ${respLen - acertosTotal} erros (QG: ${qgResp.length} · MB: ${mbResp.length})` },
+        { label:'Aproveitamento geral', icon:'fa-percent', value: pctGeral !== null ? pctGeral.toFixed(1) + '%' : '—', delta: null, note: respLen < 20 ? `Amostra pequena (${respLen} questões)` : 'Base: QG + Multibancas' },
         { label:'Disciplinas em andamento', icon:'fa-book', value: emAndamento, delta: null, note: `de ${(state.data.disciplinas || []).length} cadastradas` },
         { label:'Assuntos concluídos', icon:'fa-layer-group', value: progAss.estudados, delta: null, note: `${progAss.total - progAss.estudados} pendentes de ${progAss.total}` },
         { label:'Sequência atual', icon:'fa-fire', value: Calc.sequenciaAtual() + 'd', delta: null, note: `Maior: ${Calc.maiorSequencia()}d · ${Calc.diasEstudados()} dias totais` },
@@ -4079,10 +5059,11 @@ function renderDashboardEmpty(){
         empty.innerHTML = `
             <img src="https://res.cloudinary.com/dk8ta3dfy/image/upload/v1794074024/o-negocio_ux20dd.png" alt="Sem movimentações">
             <h2>Ops, parece que você ainda não tem movimentações na plataforma.</h2>
-            <p>Comece registrando uma sessão de estudo no Cronômetro ou responda questões no QG para ver seus indicadores aqui.</p>
+            <p>Comece registrando uma sessão de estudo no Cronômetro, respondendo questões no QG ou praticando no Questões Multibancas para ver seus indicadores aqui.</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
                 <button class="btn btn-primary" onclick="App.navigateTo('cronometro')"><i class="fas fa-stopwatch"></i> Iniciar cronômetro</button>
                 <button class="btn btn-outline" onclick="App.navigateTo('qg')"><i class="fas fa-flag"></i> Ir para o QG</button>
+                <button class="btn btn-outline" onclick="App.navigateTo('multibancas')"><i class="fas fa-list-check"></i> Questões Multibancas</button>
             </div>`;
         document.getElementById('page-dashboard').appendChild(empty);
     }
@@ -4293,7 +5274,7 @@ function abrirHistorico(discId, assId){
     const html = hist.length === 0 ? '<p class="text-muted">Nenhum registro.</p>' :
         hist.map(h => `<div style="padding:8px 12px;border-bottom:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center;gap:8px;">
             <span style="font-size:.8rem;color:var(--text-muted);">${formatarDataHora(h.data)}</span>
-            <span style="font-size:.85rem;">+${h.acertos} ✓ · +${h.erros} ✗ ${h.origem==='qg'?'<span class="badge badge-accent" style="font-size:.6rem;">QG</span>':''}</span>
+            <span style="font-size:.85rem;">+${h.acertos} ✓ · +${h.erros} ✗ ${h.origem==='qg'?'<span class="badge badge-accent" style="font-size:.6rem;">QG</span>':h.origem==='multibancas'?'<span class="badge badge-info" style="font-size:.6rem;">MB</span>':''}</span>
             <button class="btn btn-sm btn-danger" onclick="App.excluirLancamento('${discId}','${assId}','${h.id}')"><i class="fas fa-trash"></i></button>
         </div>`).join('');
     abrirModal('Histórico — '+a.nome, `<div style="max-height:400px;overflow-y:auto;">${html}</div>`, null, { botoes:[{texto:'Fechar', classe:'btn-primary', action:fecharModal}] });
@@ -4617,6 +5598,7 @@ function renderRelatorios(){
     const totalSeg = Calc.totalSegundos(sessoes);
     const nomeTipo = { teoria:'Teoria', questoes:'Questões', revisao:'Revisão', legislacao:'Legislação', simulado:'Simulado', leitura:'Leitura', estudo:'Estudo' };
     QG.ensure();
+    Multibancas.ensure();
     let html = `
         <div class="section-block">
             <div class="section-header"><h2><i class="fas fa-clock"></i> Resumo geral</h2></div>
@@ -4643,6 +5625,10 @@ function renderRelatorios(){
         <div class="section-block">
             <div class="section-header"><h2><i class="fas fa-flag"></i> QG das Questões</h2></div>
             <p>Moedas: <strong>${state.qg.coins.toLocaleString('pt-BR')}</strong> · Streak: <strong>${state.qg.currentStreak}</strong> · Recorde: <strong>${state.qg.bestStreak}</strong></p>
+        </div>
+        <div class="section-block">
+            <div class="section-header"><h2><i class="fas fa-list-check"></i> Questões Multibancas</h2></div>
+            <p>Respostas registradas: <strong>${state.data.multibancas.respostas.length}</strong> · Acertos: <strong>${state.data.multibancas.respostas.filter(r=>r.acertou).length}</strong> · Pontos: <strong>${state.data.multibancas.pontos}</strong> · Sequência: <strong>${state.data.multibancas.streak}</strong></p>
         </div>
     `;
     c.innerHTML = html;
@@ -4793,8 +5779,11 @@ function importarBackup(file){
             state.qg = state.data.qg || getDefaultData().qg;
             const qgDef = getDefaultData().qg;
             for(const k in qgDef){ if(!(k in state.qg)) state.qg[k] = qgDef[k]; }
+            if(!state.data.multibancas) state.data.multibancas = getDefaultData().multibancas;
+            const mbDef = getDefaultData().multibancas;
+            for(const k in mbDef){ if(!(k in state.data.multibancas)) state.data.multibancas[k] = mbDef[k]; }
             if(!state.data.planejamento) state.data.planejamento = getDefaultData().planejamento;
-            salvarDados(); renderAll(); QG.render();
+            salvarDados(); renderAll(); QG.render(); Multibancas.render();
             toast('Backup restaurado!','success');
         }catch(err){ toast('Erro ao ler arquivo.','error'); }
     };
@@ -4805,7 +5794,7 @@ function limparTudo(){
     state.data = getDefaultData();
     state.data.disciplinas = migrarDadosLegados();
     state.qg = state.data.qg;
-    salvarDados(); renderAll(); QG.render(); toast('Dados limpos.','info');
+    salvarDados(); renderAll(); QG.render(); Multibancas.render(); toast('Dados limpos.','info');
 }
 
 function renderConfiguracoes(){
@@ -4855,8 +5844,8 @@ function atualizarHeader(){
 
 const TITULOS = {
     dashboard:'Dashboard', disciplinas:'Disciplinas', cronograma:'Cronograma',
-    cronometro:'Cronômetro', qg:'QG das Questões', relatorios:'Relatórios',
-    pdfs:'PDFs', leis:'Leis', links:'Links', ia:'Inteligência Artificial',
+    cronometro:'Cronômetro', qg:'QG das Questões', multibancas:'Questões Multibancas',
+    relatorios:'Relatórios', pdfs:'PDFs', leis:'Leis', links:'Links', ia:'Inteligência Artificial',
     backup:'Backup', configuracoes:'Configurações'
 };
 
@@ -4885,6 +5874,7 @@ function navigateTo(page){
                     break;
                 case 'cronometro': renderCronometroSelects(); renderHistoricoSessoes(); break;
                 case 'qg': QG.render(); break;
+                case 'multibancas': Multibancas.init(); Multibancas.render(); break;
                 case 'relatorios': renderRelatorios(); break;
                 case 'pdfs': renderPdfs(); break;
                 case 'leis': renderLeis(); break;
@@ -4909,6 +5899,7 @@ function renderAll(){
             break;
         case 'cronometro': renderCronometroSelects(); renderHistoricoSessoes(); break;
         case 'qg': QG.render(); break;
+        case 'multibancas': Multibancas.init(); Multibancas.render(); break;
         case 'relatorios': renderRelatorios(); break;
         case 'pdfs': renderPdfs(); break;
         case 'leis': renderLeis(); break;
@@ -4980,16 +5971,17 @@ function logout(){
 
 const HELP_TUTORIAIS = {
     dashboard: { titulo:'Dashboard', icone:'fa-chart-pie', tag:'iniciante', resumo:'Painel executivo com índice de preparação, prioridades e plano de ação.', oqueE:'Reúne tempo estudado, sequência, desempenho, índice de preparação, mapa de prioridades, evolução e recomendações.', paraQueServe:'Identificar rapidamente seu ritmo e o próximo passo.', passos:['Acesse pelo menu lateral.','Use os filtros para ajustar período/disciplina.','Leia o Mapa de Prioridades e o Seu Próximo Passo.'], exemplo:'João vê que estudou 8h na semana e que um assunto crítico precisa de atenção.', dicas:['Use o Mapa de Prioridades para decidir o que estudar.'], erros:['Ignorar amostras pequenas (menos de 10 questões).'], resultado:'Você saberá onde focar.' },
-    disciplinas: { titulo:'Disciplinas', icone:'fa-book-open', tag:'iniciante', resumo:'Cadastre matérias e assuntos. Recebem acertos/erros do QG quando vinculados.', oqueE:'Organize disciplinas e assuntos do edital.', paraQueServe:'Acompanhar progresso por tópico.', passos:['Clique em Nova Disciplina.','Expanda e adicione assuntos.','Registre questões manualmente ou responda no QG.'], exemplo:'Maria cadastra Português e importa questões vinculadas.', dicas:['Use a ordem do edital.'], erros:['Criar nomes duplicados.'], resultado:'Lista organizada.' },
+    disciplinas: { titulo:'Disciplinas', icone:'fa-book-open', tag:'iniciante', resumo:'Cadastre matérias e assuntos. Recebem acertos/erros do QG e Multibancas quando vinculados.', oqueE:'Organize disciplinas e assuntos do edital.', paraQueServe:'Acompanhar progresso por tópico.', passos:['Clique em Nova Disciplina.','Expanda e adicione assuntos.','Registre questões manualmente, responda no QG ou no Multibancas.'], exemplo:'Maria cadastra Português e importa questões vinculadas.', dicas:['Use a ordem do edital.'], erros:['Criar nomes duplicados.'], resultado:'Lista organizada.' },
     cronograma: { titulo:'Cronograma', icone:'fa-calendar-plus', tag:'iniciante', resumo:'Sistema de ciclos (auto/manual) + agenda semanal.', oqueE:'Duas abas: Ciclos de Estudo e Agenda Semanal.', paraQueServe:'Planejar a rotina e acompanhar ciclos.', passos:['Aba Ciclos: escolha automático ou manual.','Configure disciplinas, importância e disponibilidade.','Gere e salve.','Acompanhe progresso na barra.'], exemplo:'João cria ciclo de 25h e o sistema incrementa a barra.', dicas:['Comece pelo automático.'], erros:['Confundir horas planejadas com efetivas.'], resultado:'Rotina clara.' },
     cronometro: { titulo:'Cronômetro', icone:'fa-stopwatch', tag:'iniciante', resumo:'Registre o tempo real. Integrado aos ciclos.', oqueE:'Timer que grava sessões e soma ao ciclo ativo.', paraQueServe:'Medir tempo efetivo.', passos:['Selecione disciplina, assunto e (opcional) sessão do ciclo.','Clique em Iniciar.','Finalize para registrar.'], exemplo:'Ana estuda 50min de Atos e o ciclo avança.', dicas:['Finalize sempre.'], erros:['Esquecer de finalizar.'], resultado:'Dados reais no Dashboard.' },
     qg: { titulo:'QG das Questões', icone:'fa-flag', tag:'iniciante', resumo:'Treine questões CESPE com gamificação e integração.', oqueE:'Módulo com Modo Slide, termômetro, moedas e streaks.', paraQueServe:'Treinar com feedback.', passos:['Antes de importar, escolha Disciplina e Assunto.','Cole questões ou envie PDF.','Responda.','Veja moedas, streak e jackpot.'], exemplo:'Carlos importa 10 questões de Licitações e acerta 7.', dicas:['Use o Gerador de Prompt.'], erros:['Colar fora do padrão CESPE.'], resultado:'Treino gamificado.' },
-    relatorios: { titulo:'Relatórios', icone:'fa-file-lines', tag:'iniciante', resumo:'Resumos consolidados.', oqueE:'Tabelas de tempo, ciclos e QG.', paraQueServe:'Visão macro.', passos:['Abra Relatórios.','Exporte CSV se quiser.'], exemplo:'Luísa vê 40% em Português.', dicas:['Compare mensalmente.'], erros:['Esperar dados por assunto.'], resultado:'Clareza.' },
+    multibancas: { titulo:'Questões Multibancas', icone:'fa-list-check', tag:'iniciante', resumo:'Pratique questões A-E com correção automática, prompts por banca e integração ao desempenho.', oqueE:'Módulo de múltipla escolha com 5 alternativas, importação por texto, prompts por banca (integrados às disciplinas e assuntos cadastrados) e gamificação (pontos, streak, níveis). Sons e comentários expansíveis são os mesmos do QG.', paraQueServe:'Treinar questões no estilo da sua banca e alimentar o desempenho das disciplinas, do dashboard e do Índice de Preparação.', passos:['Escolha a banca, disciplina e assunto para gerar um prompt.','Copie o prompt e cole em uma IA (ChatGPT, Gemini, DeepSeek, NotebookLM).','Cole as questões geradas na área de importação.','Vincule a uma disciplina e assunto (opcional, mas recomendado).','Selecione a alternativa, use a tesoura para eliminar opções e confirme.','Acompanhe taxa de acertos, pontos, streak e nível.'], exemplo:'Ana gera 20 questões da FCC sobre Licitações, importa e responde vinculando à disciplina do edital — o aproveitamento aparece no Dashboard e nas Disciplinas.', dicas:['Use "Aplicar vínculo" para vincular toda a sessão de uma vez.','Sons e comentários são reutilizados do QG.'], erros:['Colar questões fora do formato A-E.','Esquecer de vincular a disciplina (o desempenho fica sem vínculo).'], resultado:'Questões respondidas registradas no desempenho geral (QG + Multibancas).' },
+    relatorios: { titulo:'Relatórios', icone:'fa-file-lines', tag:'iniciante', resumo:'Resumos consolidados.', oqueE:'Tabelas de tempo, ciclos, QG e Multibancas.', paraQueServe:'Visão macro.', passos:['Abra Relatórios.','Exporte CSV se quiser.'], exemplo:'Luísa vê 40% em Português.', dicas:['Compare mensalmente.'], erros:['Esperar dados por assunto.'], resultado:'Clareza.' },
     pdfs: { titulo:'PDFs', icone:'fa-file-pdf', tag:'iniciante', resumo:'Acompanhe leitura de PDFs.', oqueE:'Cadastro de materiais.', paraQueServe:'Controlar avanço.', passos:['Adicione Aula.','Atualize páginas lidas.'], exemplo:'Rafael lê 200 páginas.', dicas:['Cadastre por aula.'], erros:['Esquecer de atualizar.'], resultado:'Progresso visível.' },
     leis: { titulo:'Leis', icone:'fa-scale-balanced', tag:'iniciante', resumo:'Acompanhe leitura de leis.', oqueE:'Cadastro de leis.', paraQueServe:'Controlar avanço.', passos:['Adicione Lei.','Atualize páginas.'], exemplo:'Paula lê a 8.112/90.', dicas:['Atualize sempre.'], erros:['Não informar total de páginas.'], resultado:'Progresso visível.' },
     links: { titulo:'Links', icone:'fa-link', tag:'iniciante', resumo:'Centralize sites úteis.', oqueE:'Categorias e URLs.', paraQueServe:'Organizar recursos.', passos:['Crie categoria.','Adicione link.'], exemplo:'Diego cria Sites de Questões.', dicas:['Nomes curtos.'], erros:['URL sem https.'], resultado:'Tudo centralizado.' },
-    ia: { titulo:'IA', icone:'fa-robot', tag:'iniciante', resumo:'Atalhos para IAs.', oqueE:'ChatGPT, DeepSeek, Gemini, NotebookLM.', paraQueServe:'Gerar questões e tirar dúvidas.', passos:['Abra IA.','Clique em Acessar.'], exemplo:'Renata usa o Gerador de Prompt do QG.', dicas:['Revise o conteúdo.'], erros:['Confiar cegamente.'], resultado:'Estudos potencializados.' },
-    backup: { titulo:'Backup', icone:'fa-database', tag:'iniciante', resumo:'Proteja seus dados.', oqueE:'Exportar/Importar JSON.', paraQueServe:'Evitar perdas.', passos:['Exporte semanalmente.','Importe para restaurar.'], exemplo:'Lucas salva no Drive.', dicas:['Guarde em nuvem.'], erros:['Nunca exportar.'], resultado:'Dados seguros.' },
+    ia: { titulo:'IA', icone:'fa-robot', tag:'iniciante', resumo:'Atalhos para IAs.', oqueE:'ChatGPT, DeepSeek, Gemini, NotebookLM.', paraQueServe:'Gerar questões e tirar dúvidas.', passos:['Abra IA.','Clique em Acessar.'], exemplo:'Renata usa o Gerador de Prompt do QG e do Multibancas.', dicas:['Revise o conteúdo.'], erros:['Confiar cegamente.'], resultado:'Estudos potencializados.' },
+    backup: { titulo:'Backup', icone:'fa-database', tag:'iniciante', resumo:'Proteja seus dados (incluindo Multibancas).', oqueE:'Exportar/Importar JSON.', paraQueServe:'Evitar perdas.', passos:['Exporte semanalmente.','Importe para restaurar.'], exemplo:'Lucas salva no Drive.', dicas:['Guarde em nuvem.'], erros:['Nunca exportar.'], resultado:'Dados seguros.' },
     configuracoes: { titulo:'Configurações', icone:'fa-sliders', tag:'iniciante', resumo:'Perfil, metas e áudio.', oqueE:'Ajustes do app.', paraQueServe:'Personalizar.', passos:['Edite perfil.','Defina metas.','Ajuste som.'], exemplo:'Fernanda define 120min/dia.', dicas:['Metas realistas.'], erros:['Metas impossíveis.'], resultado:'App personalizado.' }
 };
 function renderHelpGrid(filter){
@@ -5042,11 +6034,9 @@ function bindEventos(){
     document.getElementById('btnNovaDisciplina').onclick = abrirNovaDisciplina;
     ['filtroClassif','filtroOrdem','filtroBusca'].forEach(id => { const el = document.getElementById(id); if(el) el.addEventListener('input', renderDisciplinas); });
 
-    // Filtro de prioridades — NOVO
     const filtroPrioridade = document.getElementById('prioridadeFiltro');
     if(filtroPrioridade) filtroPrioridade.addEventListener('change', () => renderPrioridades());
 
-    // Cronograma tabs
     document.querySelectorAll('.cron-tab').forEach(tab => {
         tab.onclick = () => {
             document.querySelectorAll('.cron-tab').forEach(t => t.classList.remove('active'));
@@ -5065,7 +6055,6 @@ function bindEventos(){
         };
     });
 
-    // Agenda buttons
     document.getElementById('btnNovaAtividade').onclick = abrirNovaAtividade;
     document.getElementById('btnGerarModelo').onclick = abrirGerarModelo;
     document.getElementById('semanaAnterior').onclick = () => { state.semanaAtual.setDate(state.semanaAtual.getDate()-7); renderCronograma(); };
@@ -5151,6 +6140,9 @@ function bindEventos(){
     document.getElementById('btnSalvarMetas').onclick = salvarMetas;
     document.getElementById('btnSalvarClassif').onclick = salvarClassif;
     document.getElementById('btnRestaurarClassif').onclick = restaurarClassif;
+
+    // Multibancas - init eventos estáticos (a página já está no DOM)
+    Multibancas.init();
 }
 
 window.App = {
@@ -5167,6 +6159,7 @@ function init(){
     aplicarTemaSalvo();
     state.data = carregarDados();
     QG.ensure();
+    Multibancas.ensure();
     App.Ciclo.ensure();
     state.qg = state.data.qg;
     QGAudio.init();
